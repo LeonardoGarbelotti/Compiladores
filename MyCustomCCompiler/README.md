@@ -1,9 +1,10 @@
 # MDMCC
 Código para o compilador
 
-# Gramática
-//maiúscula para token e minúsculo são variáveis
+## Gramática
+###maiúscula para token e minúsculo são variáveis
 
+```
 prog: includes? globals? functions? main
 includes: (INCLUD STR)+
 globals: GLOB OP vars CL
@@ -17,8 +18,9 @@ block: OPCB line+ CLCB
 line : declaration | input | output | atrib | ifstmt | whilestmt | forstmt 
 
 INCLUDE : '#Include'
-STR : '"'.?\*'"'
+STR : '"'.?*'"'
 GLOB: 'global'
 OP : '{'
 CL : '}'
 SEP ','
+```
