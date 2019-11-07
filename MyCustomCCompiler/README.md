@@ -32,7 +32,7 @@ functions       : function+
 function        : FUNCTION ID OPP ((type ID SEP)* type ID)? CLP block
                 ;
 
-main             : MAIN block
+main            : MAIN block
                 ;
 
 block           : OP line+ CL
