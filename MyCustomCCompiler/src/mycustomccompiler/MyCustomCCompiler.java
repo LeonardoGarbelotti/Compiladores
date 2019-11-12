@@ -5,14 +5,18 @@
  */
 package mycustomccompiler;
 
-import java.util.*;
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.BufferedTokenStream;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.TokenStream;
 import MCGrammar.CMCGrammarLexer;
 import MCGrammar.CMCGrammarParser;
+import java.awt.HeadlessException;
+import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import org.antlr.v4.gui.TreeViewer;
+import org.antlr.v4.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 /**
  *
@@ -23,22 +27,26 @@ public class MyCustomCCompiler {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        while (s.hasNextLine()){
-            String input = s.nextLine();
-            Integer r = parse(input);
-            System.out.println(">>> " + r);
-        }
-    }
-    
-     private static Integer parse(String text) throws RecognitionException {
-        CharStream input = new ANTLRInputStream(text+"\n");
+    public static void main(String[] args) throws Exception {
+        CharStream input = new ANTLRFileStream("teste.mc3");
         CMCGrammarLexer lexer = new CMCGrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);
-        CMCGrammarParser.LangContext lang = parser.lang();
-        return lang.value;
+        CMCGrammarParser.ProgContext lang = parser.prog();
+        showParseTreeFrame(lang,parser);
     }
     
+    private static void showParseTreeFrame(ParseTree tree, CMCGrammarParser parser) throws HeadlessException {
+        JFrame frame = new JFrame("SRC: " + tree.getText());
+        JPanel panel = new JPanel();
+        TreeViewer viewr = new TreeViewer(Arrays.asList(
+                parser.getRuleNames()), tree);
+        viewr.setScale(3);
+        panel.add(viewr);
+        frame.add(panel);
+        frame.setSize(1000, 600);
+        frame.setState(JFrame.MAXIMIZED_HORIZ);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
 }
