@@ -47,15 +47,15 @@ line            : declaration
 declaration     : vars+
                 ;
 
-input           : READ OPP ID CLP
+input           : READ OPP ID CLP EOL
                 ;
 
-output          : WRITE OPP ID CLP
+output          : WRITE OPP ID CLP EOL
                 ;
 
-expr            : ID assignOP ID 
-                | ID assignOP NUM
-                | ID assignOP mag
+expr            : ID assignOP ID EOL
+                | ID assignOP NUM EOL
+                | ID assignOP mag EOL
                 | mag
                 ;
 

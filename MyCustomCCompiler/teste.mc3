@@ -1,22 +1,5 @@
-#include "teste.mc3"
-
-  global {
-    int x;
-    int y;
-    int z;
-  }
-
-  int somar(int x, int y){
-     int res;
-     res = x + y;
-     result = res;
-     somar = res; 
-  }
-
   main {
-     int x, y, z;
-     x = read();
-     y = input("Informe um número");
-     z = somar(x,y);
-     output(z);
+     int x;
+     x = 15;
+     writeln(x);
   }
