@@ -4,10 +4,10 @@ Código para o compilador
 ## Gramática
 
 ```
-grammar Basic;
+grammar CMCGrammar;
 
 @header {
-package basicInterpreter.parser;
+package MCGrammar;
 }
 
 prog            : includes? globals? functions? main
