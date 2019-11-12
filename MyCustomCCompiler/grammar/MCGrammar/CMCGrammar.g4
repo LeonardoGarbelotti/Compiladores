@@ -55,7 +55,7 @@ output          : WRITE OPP ID CLP EOL
 
 expr            : ID assignOP ID EOL
                 | ID assignOP NUM EOL
-                | ID assignOP mag EOL
+                | ID assignOP mag
                 | mag
                 ;
 
@@ -103,10 +103,12 @@ factor          : OPP expr CLP
 
 
 INCLUDE     : '#Include';
-STR         : '"'.*'"';
 GLOB        : 'global';
 MAIN        : 'main';
 FUNCTION    : 'function';
+WS: (' '|'\t')+{skip();};
+NL: '\r'?'\n'+{skip();};
+LC: '//' ~[\r\n]*{skip();};
 
 IF          : 'if';
 ELSE        : 'else';
@@ -138,3 +140,5 @@ STRING      : 'string';
 
 ID: [a-zA-Z][0-9a-zA-Z]*;
 NUM: [+-]?[0-9]+('.'[0-9]+)?;
+STR: '"'(~'"'|'"')*'"';
+
