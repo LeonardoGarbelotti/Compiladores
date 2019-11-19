@@ -1,10 +1,7 @@
-#Include "banana.mp3"
-
 main {
-    int x, y, z;
-    x = 15;
+    
+    int x;
     readln(x);
-    readln(y);
-    z = x+y
-    writeln(z);
+    writeln(x);
+    writeln("banana");
  }

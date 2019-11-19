@@ -10,7 +10,7 @@ global {
      int res;
      res = x + y;
   }
-
+  
   main {
      int x, y, z;
      readln(x);

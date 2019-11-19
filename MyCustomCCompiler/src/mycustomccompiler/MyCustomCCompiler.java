@@ -28,7 +28,7 @@ public class MyCustomCCompiler {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        CharStream input = new ANTLRFileStream("alg1.mc3");
+        CharStream input = new ANTLRFileStream("alg2.mc3");
         CMCGrammarLexer lexer = new CMCGrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);

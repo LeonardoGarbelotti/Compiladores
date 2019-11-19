@@ -51,6 +51,7 @@ input           : READ OPP ID CLP
                 ;
 
 output          : WRITE OPP ID CLP
+                | WRITE OPP STR CLP
                 ;
 
 expr            : ID assignOP mag 
@@ -96,6 +97,7 @@ term            : term '*' factor
 factor          : OPP expr CLP
                 | ID
                 | NUM
+                | STR
                 ;
 
 
@@ -130,6 +132,7 @@ GREATER     : '>';
 GREATEREQ   : '>=';
 
 
+
 INT         : 'int';
 FLOAT       : 'float';
 BOOLEAN     : 'bool';
@@ -138,4 +141,5 @@ STRING      : 'string';
 ID: [a-zA-Z][0-9a-zA-Z]*;
 NUM: [+-]?[0-9]+('.'[0-9]+)?;
 STR: '"'(~'"'|'"')*'"';
+
 

@@ -1,0 +1,9 @@
+main {
+
+    if(x=10){
+        writeln("x eh 10");
+    } else {
+        x = x + 1;   
+    }
+
+}
