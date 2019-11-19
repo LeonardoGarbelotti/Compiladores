@@ -36,9 +36,9 @@ block           : OP line+ CL
                 ;
 
 line            : declaration
-                | input
-                | output
-                | expr
+                | input EOL
+                | output EOL
+                | expr EOL?
                 | ifstmt
                 | whilestmt
                 | forstmt
@@ -47,15 +47,13 @@ line            : declaration
 declaration     : vars+
                 ;
 
-input           : READ OPP ID CLP EOL
+input           : READ OPP ID CLP 
                 ;
 
-output          : WRITE OPP ID CLP EOL
+output          : WRITE OPP ID CLP
                 ;
 
-expr            : ID assignOP ID EOL
-                | ID assignOP NUM EOL
-                | ID assignOP mag
+expr            : ID assignOP mag 
                 | mag
                 ;
 
@@ -91,12 +89,11 @@ mag             : mag '+' term
 
 term            : term '*' factor
                 | term '/' factor
+                | term SEP factor
                 | factor
                 ;
 
 factor          : OPP expr CLP
-                | '-' factor
-                | '+' factor
                 | ID
                 | NUM
                 ;
