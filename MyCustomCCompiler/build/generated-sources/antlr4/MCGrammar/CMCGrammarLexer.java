@@ -1,4 +1,4 @@
-// Generated from C:\Users\cc49755682848\Documents\NetBeansProjects\Compiladores\MyCustomCCompiler\grammar\MCGrammar\CMCGrammar.g4 by ANTLR 4.6
+// Generated from C:\Users\cc49755682848\Documents\GitHub\Compiladores\MyCustomCCompiler\grammar\MCGrammar\CMCGrammar.g4 by ANTLR 4.6
 
 package MCGrammar;
 

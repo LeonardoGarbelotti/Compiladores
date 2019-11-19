@@ -28,7 +28,7 @@ public class MyCustomCCompiler {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        CharStream input = new ANTLRFileStream("teste.mc3");
+        CharStream input = new ANTLRFileStream("alg1.mc3");
         CMCGrammarLexer lexer = new CMCGrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);
@@ -41,7 +41,7 @@ public class MyCustomCCompiler {
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(
                 parser.getRuleNames()), tree);
-        viewr.setScale(3);
+        viewr.setScale(1);
         panel.add(viewr);
         frame.add(panel);
         frame.setSize(1000, 600);
