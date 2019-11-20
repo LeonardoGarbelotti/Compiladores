@@ -8,13 +8,35 @@ global {
 
   function multiplicar(int x, int y){
      int res;
-     res = x + y;
+     res = x * y;
   }
   
   main {
      int x, y, z;
+     bool active;
+     string nome;
+
      readln(x);
      readln(y);
      z = multiplicar(x,y);
      writeln(z);
+
+
+    if(z>10){
+        active = false;
+    }
+
+    while(active=true){
+        int sum1;
+        sum1 = sum1 * 2;
+
+        for(int i ... 5){
+            i = i * 1;
+        }
+
+        writeln(sum1);
+    }
+    
+    readln(nome);
+    writeln(nome);
   }
