@@ -6,9 +6,11 @@ global {
     int z;
 }
 
-  function multiplicar(int x, int y){
+  int multiplicar(int x, int y){
      int res;
      res = x * y;
+
+     return res;
   }
   
   main {
@@ -19,13 +21,14 @@ global {
      writeln("Digite o valor de X");
      readln(x);
      
-     writeln("Digite o valor de X");
+     writeln("Digite o valor de Y");
      readln(y);
 
-     //banana
-     z = multiplicar(x,y);
+     //comment line
+     z -> multiplicar(x,y);
      writeln(z);
 
+    somar();
 
     if(z>10){
         active = false;
@@ -42,6 +45,4 @@ global {
         writeln(sum1);
     }
     
-    readln(nome);
-    writeln(nome);
   }

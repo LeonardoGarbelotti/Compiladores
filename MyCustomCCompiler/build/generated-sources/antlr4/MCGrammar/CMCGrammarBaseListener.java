@@ -186,6 +186,18 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBoolexpr(CMCGrammarParser.BoolexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolexpr(CMCGrammarParser.BoolexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIfstmt(CMCGrammarParser.IfstmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -217,6 +229,30 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitForstmt(CMCGrammarParser.ForstmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCallfunction(CMCGrammarParser.CallfunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCallfunction(CMCGrammarParser.CallfunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRetrn(CMCGrammarParser.RetrnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRetrn(CMCGrammarParser.RetrnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

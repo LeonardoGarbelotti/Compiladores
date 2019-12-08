@@ -150,6 +150,16 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitExpr(CMCGrammarParser.ExprContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolexpr(CMCGrammarParser.BoolexprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolexpr(CMCGrammarParser.BoolexprContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CMCGrammarParser#ifstmt}.
 	 * @param ctx the parse tree
 	 */
@@ -179,6 +189,26 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForstmt(CMCGrammarParser.ForstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CMCGrammarParser#callfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterCallfunction(CMCGrammarParser.CallfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMCGrammarParser#callfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitCallfunction(CMCGrammarParser.CallfunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CMCGrammarParser#retrn}.
+	 * @param ctx the parse tree
+	 */
+	void enterRetrn(CMCGrammarParser.RetrnContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMCGrammarParser#retrn}.
+	 * @param ctx the parse tree
+	 */
+	void exitRetrn(CMCGrammarParser.RetrnContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CMCGrammarParser#type}.
 	 * @param ctx the parse tree

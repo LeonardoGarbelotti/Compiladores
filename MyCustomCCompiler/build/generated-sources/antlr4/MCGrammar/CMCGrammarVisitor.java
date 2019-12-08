@@ -97,6 +97,12 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpr(CMCGrammarParser.ExprContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolexpr(CMCGrammarParser.BoolexprContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CMCGrammarParser#ifstmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -114,6 +120,18 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForstmt(CMCGrammarParser.ForstmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CMCGrammarParser#callfunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCallfunction(CMCGrammarParser.CallfunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CMCGrammarParser#retrn}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRetrn(CMCGrammarParser.RetrnContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CMCGrammarParser#type}.
 	 * @param ctx the parse tree

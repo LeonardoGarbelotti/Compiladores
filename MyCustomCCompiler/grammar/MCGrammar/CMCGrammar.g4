@@ -26,7 +26,7 @@ ids             : ID
 functions       : function+
                 ;
 
-function        : FUNCTION ID OPP ((type ID SEP)* type ID)? CLP block
+function        : type ID OPP ((type ID SEP)* type ID)? CLP block
                 ;
 
 main            : MAIN block
@@ -42,6 +42,8 @@ line            : declaration
                 | ifstmt
                 | whilestmt
                 | forstmt
+                | callfunction EOL
+                | retrn
                 ;
 
 declaration     : vars+
@@ -54,8 +56,13 @@ output          : WRITE OPP ID CLP
                 | WRITE OPP STR CLP
                 ;
 
-expr            : ID assignOP mag 
+expr            : ID assignOP mag
+                | ID AT boolexpr
                 | mag
+                ;
+
+boolexpr        : TRUE
+                | FALSE
                 ;
 
 ifstmt          : IF OPP expr CLP block 
@@ -66,6 +73,15 @@ whilestmt       : WHILE OPP expr CLP block
                 ;
 
 forstmt         : FOR OPP type expr RNG NUM CLP block
+                ;
+
+callfunction    : ID CALL ID OPP ((ID SEP)* ID) CLP
+                | ID CALL ID OPP ((NUM SEP)* NUM) CLP
+                | ID OPP CLP
+                ;
+
+retrn           : RET ID EOL
+                | RET expr EOL
                 ;
 
 type            : INT
@@ -115,6 +131,7 @@ FOR         : 'for';
 WHILE       : 'while';
 WRITE       : 'writeln';
 READ        : 'readln';
+RET         : 'return';
 
 OP          : '{';
 CL          : '}';
@@ -130,6 +147,9 @@ LESS        : '<';
 LESSEQ      : '<=';
 GREATER     : '>';
 GREATEREQ   : '>=';
+CALL        : '->';
+TRUE        : 'true';
+FALSE       : 'false';
 
 
 
