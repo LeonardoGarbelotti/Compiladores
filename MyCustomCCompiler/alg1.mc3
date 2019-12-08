@@ -15,9 +15,14 @@ global {
      int x, y, z;
      bool active;
      string nome;
-
+     
+     writeln("Digite o valor de X");
      readln(x);
+     
+     writeln("Digite o valor de X");
      readln(y);
+
+     //banana
      z = multiplicar(x,y);
      writeln(z);
 
