@@ -23,12 +23,14 @@ public class Visitor extends CMCGrammarBaseVisitor {
     public Object visitIncludes(CMCGrammarParser.IncludesContext ctx) {
         System.out.println("visitou include");
         return visitChildren(ctx);
+        
     }
 
     @Override
     public Object visitGlobals(CMCGrammarParser.GlobalsContext ctx) {
         escopo = "global";
         System.out.println("visitou global");
+        System.out.println(escopo);
         return visitChildren(ctx);
     }
 
@@ -43,6 +45,8 @@ public class Visitor extends CMCGrammarBaseVisitor {
     public Object visitFunction(CMCGrammarParser.FunctionContext ctx) {
         nomeFuncao = ctx.ID().get(0).getText();
         String tipo = ctx.type().get(0).getText();
+        
+        System.out.println(escopo + " "+ tipo + " " + nomeFuncao);
         return visitChildren(ctx);
     }
 

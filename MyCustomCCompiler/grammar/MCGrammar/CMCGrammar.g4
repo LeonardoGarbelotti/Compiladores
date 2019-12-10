@@ -32,7 +32,7 @@ function        : type ID OPP ((type ID SEP)* type ID)? CLP block
 main            : MAIN block
                 ;
 
-block           : OP line+ CL
+block           : OP line* CL
                 ;
 
 line            : vars
@@ -46,7 +46,6 @@ line            : vars
                 | retrn
                 ;
 
-
 input           : READ OPP ID CLP 
                 ;
 
@@ -54,17 +53,12 @@ output          : WRITE OPP ID CLP
                 | WRITE OPP STR CLP
                 ;
 
-expr            : ID assignOP mag
-                | ID AT boolexpr
-                | mag
+ifstmt          : IF OPP cond CLP bloco1=block 
+                | IF OPP cond CLP bloco1=block ELSE bloco2=block
                 ;
 
-boolexpr        : TRUE
-                | FALSE
-                ;
-
-ifstmt          : IF OPP expr CLP block 
-                | IF OPP expr CLP block ELSE block
+cond            : expr
+                | expr assignOP expr
                 ;
 
 whilestmt       : WHILE OPP expr CLP block
@@ -88,22 +82,21 @@ type            : INT
                 | STRING
                 ;
 
-assignOP        : AT
+assignOP        : EQ
                 | NEG
-                | EQ
                 | LESS
                 | LESSEQ
                 | GREATER
                 | GREATEREQ
                 ;
 
-mag             : mag '+' term
-                | mag '-' term
+expr            : term PLUS expr
+                | term MINUM expr
                 | term
                 ;
 
-term            : term '*' factor
-                | term '/' factor
+term            : term MULT factor
+                | term DIV factor
                 | term SEP factor
                 | factor
                 ;
@@ -112,6 +105,11 @@ factor          : OPP expr CLP
                 | ID
                 | NUM
                 | STR
+                | boolexpr
+                ;
+
+boolexpr        : TRUE
+                | FALSE
                 ;
 
 
@@ -148,6 +146,10 @@ GREATEREQ   : '>=';
 CALL        : '->';
 TRUE        : 'true';
 FALSE       : 'false';
+PLUS        : '+';
+MINUM       : '-';
+MULT        : '*';
+DIV         : '/';
 
 
 
