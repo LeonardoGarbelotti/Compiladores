@@ -9,6 +9,6 @@ package mycustomccompiler;
  *
  * @author 1511 IRON
  */
-public class TabelaSimbolos {
+public class Visitor {
     
 }

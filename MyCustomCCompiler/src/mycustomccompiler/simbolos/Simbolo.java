@@ -3,28 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mycustomccompiler;
+package mycustomccompiler.simbolos;
 
 /**
  *
  * @author 1511 IRON
  */
 public class Simbolo {
+
     private Integer id;
     private String val;
     private String tipo;
     private String escopo;
     private String nome;
-    
-    public Simbolo(){
-        this.tipo = "";
+
+    public Simbolo() {
         this.id = 0;
+        this.tipo = "";
         this.val = "";
         this.escopo = "";
         this.nome = "";
     }
-    
-    public Simbolo(Integer id, String tipo, String nome, String val, String escopo ){
+
+    public Simbolo(Integer id, String tipo, String nome, String val, String escopo) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
@@ -71,6 +72,5 @@ public class Simbolo {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
 }
