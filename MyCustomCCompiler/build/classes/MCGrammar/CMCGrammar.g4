@@ -35,7 +35,7 @@ main            : MAIN block
 block           : OP line+ CL
                 ;
 
-line            : declaration
+line            : vars
                 | input EOL
                 | output EOL
                 | expr EOL?
@@ -46,8 +46,6 @@ line            : declaration
                 | retrn
                 ;
 
-declaration     : vars+
-                ;
 
 input           : READ OPP ID CLP 
                 ;

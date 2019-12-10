@@ -14,6 +14,7 @@ import java.awt.HeadlessException;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import mycustomccompiler.simbolos.TabelaSimbolos;
 import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -28,12 +29,18 @@ public class MyCustomCCompiler {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        CharStream input = new ANTLRFileStream("alg1.mc3");
+        CharStream input = new ANTLRFileStream("teste.mc3");
         CMCGrammarLexer lexer = new CMCGrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);
-        CMCGrammarParser.ProgContext lang = parser.prog();
-        showParseTreeFrame(lang,parser);
+        //CMCGrammarParser.ProgContext lang = parser.prog();
+        
+        TabelaSimbolos symbolTable = TabelaSimbolos.getInstance();
+        ParseTree tree = parser.prog();
+        Visitor visitor = new Visitor();
+        visitor.visit(tree);
+        
+        showParseTreeFrame(tree,parser); //lang
     }
     
     private static void showParseTreeFrame(ParseTree tree, CMCGrammarParser parser) throws HeadlessException {
@@ -41,7 +48,7 @@ public class MyCustomCCompiler {
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(
                 parser.getRuleNames()), tree);
-        viewr.setScale(0.7);
+        viewr.setScale(1);
         panel.add(viewr);
         frame.add(panel);
         frame.setSize(1000, 600);

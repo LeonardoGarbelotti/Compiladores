@@ -138,18 +138,6 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaration(CMCGrammarParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDeclaration(CMCGrammarParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterInput(CMCGrammarParser.InputContext ctx) { }
 	/**
 	 * {@inheritDoc}

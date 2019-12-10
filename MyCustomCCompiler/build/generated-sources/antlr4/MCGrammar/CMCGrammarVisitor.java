@@ -73,12 +73,6 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLine(CMCGrammarParser.LineContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CMCGrammarParser#declaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDeclaration(CMCGrammarParser.DeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link CMCGrammarParser#input}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

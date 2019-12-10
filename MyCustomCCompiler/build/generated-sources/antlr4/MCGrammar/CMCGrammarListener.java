@@ -110,16 +110,6 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitLine(CMCGrammarParser.LineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaration(CMCGrammarParser.DeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaration(CMCGrammarParser.DeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link CMCGrammarParser#input}.
 	 * @param ctx the parse tree
 	 */

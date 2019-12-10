@@ -1,7 +1,13 @@
+#Include "pepino.mc3"
+
+global {
+int x;
+}
+
+int somar(int x){
+int y;
+}
+
 main {
-    
-    int x;
-    readln(x);
-    writeln(x);
-    writeln("banana");
- }
+int y;
+}
