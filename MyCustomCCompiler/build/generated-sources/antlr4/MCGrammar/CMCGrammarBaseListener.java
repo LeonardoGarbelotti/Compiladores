@@ -270,25 +270,13 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintId(CMCGrammarParser.PrintIdContext ctx) { }
+	@Override public void enterPrintt(CMCGrammarParser.PrinttContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintId(CMCGrammarParser.PrintIdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrintStr(CMCGrammarParser.PrintStrContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrintStr(CMCGrammarParser.PrintStrContext ctx) { }
+	@Override public void exitPrintt(CMCGrammarParser.PrinttContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

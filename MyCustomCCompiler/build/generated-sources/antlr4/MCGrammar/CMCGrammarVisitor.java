@@ -152,19 +152,12 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInputValue(CMCGrammarParser.InputValueContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code printId}
+	 * Visit a parse tree produced by the {@code printt}
 	 * labeled alternative in {@link CMCGrammarParser#output}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrintId(CMCGrammarParser.PrintIdContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code printStr}
-	 * labeled alternative in {@link CMCGrammarParser#output}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrintStr(CMCGrammarParser.PrintStrContext ctx);
+	T visitPrintt(CMCGrammarParser.PrinttContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code iffStmt}
 	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.

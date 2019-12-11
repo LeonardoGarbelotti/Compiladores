@@ -50,8 +50,7 @@ attribution     : ID AT expr                                        #attrExpr
 input           : READ OPP ID CLP                                   #inputValue
                 ;
 
-output          : WRITE OPP ID CLP                                  #printId
-                | WRITE OPP STR CLP                                 #printStr
+output          : WRITE OPP expr CLP                                  #printt
                 ;
 
 ifstmt          : IF OPP cond CLP bloco1=block                      #iffStmt

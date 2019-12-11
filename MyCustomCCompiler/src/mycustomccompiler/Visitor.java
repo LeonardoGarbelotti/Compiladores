@@ -59,7 +59,6 @@ public class Visitor extends CMCGrammarBaseVisitor {
 
     @Override
     public Object visitAttrExpr(CMCGrammarParser.AttrExprContext ctx) {
-        System.out.println("agr chega expr");
         for (int i = 0; i < TabelaSimbolos.getInstance().size(); i++) {
             String name = TabelaSimbolos.getInstance().get(i).getNome();
             if (ctx.ID().getText().equals(name)) {
@@ -73,19 +72,49 @@ public class Visitor extends CMCGrammarBaseVisitor {
     }
 
     @Override
-    public Object visitAttrStr(CMCGrammarParser.AttrStrContext ctx) {
-        String aux = ctx.STR().getText();
-        aux = aux.replace("\"", "");
-        for (int i = 0; i < TabelaSimbolos.getInstance().size(); i++) {
-            String name = TabelaSimbolos.getInstance().get(i).getNome();
-            if (ctx.ID().getText().equals(name)) {
-                Simbolo s = TabelaSimbolos.getInstance().get(i);
-                s.setVal(aux);
-                TabelaSimbolos.getInstance().set(i, s);
-                break;
-            }
-        }
+    public Object visitPrintt(CMCGrammarParser.PrinttContext ctx) {
+        Object o = visit(ctx.expr());
+        System.out.println(o);
+        return o;
+    }
 
-        return visitChildren(ctx);
+    @Override
+    public Object visitExprPlus(CMCGrammarParser.ExprPlusContext ctx) {
+        Double a = (Double) visit(ctx.term());
+        Double b = (Double) visit(ctx.expr());
+        return a + b;
+    }
+
+    @Override
+    public Object visitExprMinum(CMCGrammarParser.ExprMinumContext ctx) {
+        Double a = (Double) visit(ctx.term());
+        Double b = (Double) visit(ctx.expr());
+        return a - b;
+    }
+
+    @Override
+    public Object visitTermDiv(CMCGrammarParser.TermDivContext ctx) {
+        Double a = (Double) visit(ctx.term());
+        Double b = (Double) visit(ctx.factor());
+        return a / b;
+    }
+
+    @Override
+    public Object visitTermMult(CMCGrammarParser.TermMultContext ctx) {
+        Double a = (Double) visit(ctx.term());
+        Double b = (Double) visit(ctx.factor());
+        return a * b;
+    }
+
+    @Override
+    public Object visitFactorId(CMCGrammarParser.FactorIdContext ctx) {
+        //System.out.println(TabelaSimbolos.getInstance().get(0).)
+        //return SymbolsTable.getInstance().getSymbol(ctx.ID().getText())[1];
+        return  visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitFactorNum(CMCGrammarParser.FactorNumContext ctx) {
+         return Double.parseDouble(ctx.NUM().getText());
     }
 }

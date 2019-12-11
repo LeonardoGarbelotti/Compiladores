@@ -1,8 +1,7 @@
 main{
-int z;
-string barnabe;
-
-barnabe = "tarado";
-z = 10;
+    int z;
+    z = 2 + 2;
+   
+    writeln(z);
 
 }

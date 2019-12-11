@@ -166,14 +166,7 @@ public class CMCGrammarBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrintId(CMCGrammarParser.PrintIdContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitPrintStr(CMCGrammarParser.PrintStrContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrintt(CMCGrammarParser.PrinttContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

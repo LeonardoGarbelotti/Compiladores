@@ -246,29 +246,17 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitInputValue(CMCGrammarParser.InputValueContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code printId}
+	 * Enter a parse tree produced by the {@code printt}
 	 * labeled alternative in {@link CMCGrammarParser#output}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrintId(CMCGrammarParser.PrintIdContext ctx);
+	void enterPrintt(CMCGrammarParser.PrinttContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code printId}
+	 * Exit a parse tree produced by the {@code printt}
 	 * labeled alternative in {@link CMCGrammarParser#output}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrintId(CMCGrammarParser.PrintIdContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code printStr}
-	 * labeled alternative in {@link CMCGrammarParser#output}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrintStr(CMCGrammarParser.PrintStrContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code printStr}
-	 * labeled alternative in {@link CMCGrammarParser#output}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrintStr(CMCGrammarParser.PrintStrContext ctx);
+	void exitPrintt(CMCGrammarParser.PrinttContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code iffStmt}
 	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
