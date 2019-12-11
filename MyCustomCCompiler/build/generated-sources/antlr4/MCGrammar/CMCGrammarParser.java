@@ -19,38 +19,38 @@ public class CMCGrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, INCLUDE=5, GLOB=6, MAIN=7, FUNCTION=8, 
-		WS=9, NL=10, LC=11, IF=12, ELSE=13, FOR=14, WHILE=15, WRITE=16, READ=17, 
-		RET=18, OP=19, CL=20, SEP=21, OPP=22, CLP=23, EOL=24, AT=25, RNG=26, NEG=27, 
-		EQ=28, LESS=29, LESSEQ=30, GREATER=31, GREATEREQ=32, CALL=33, TRUE=34, 
-		FALSE=35, INT=36, FLOAT=37, BOOLEAN=38, STRING=39, ID=40, NUM=41, STR=42;
+		INCLUDE=1, GLOB=2, MAIN=3, FUNCTION=4, WS=5, NL=6, LC=7, IF=8, ELSE=9, 
+		FOR=10, WHILE=11, WRITE=12, READ=13, RET=14, OP=15, CL=16, SEP=17, OPP=18, 
+		CLP=19, EOL=20, AT=21, RNG=22, NEG=23, EQ=24, LESS=25, LESSEQ=26, GREATER=27, 
+		GREATEREQ=28, CALL=29, TRUE=30, FALSE=31, PLUS=32, MINUM=33, MULT=34, 
+		DIV=35, INT=36, FLOAT=37, BOOLEAN=38, STRING=39, ID=40, NUM=41, STR=42;
 	public static final int
 		RULE_prog = 0, RULE_includes = 1, RULE_globals = 2, RULE_vars = 3, RULE_ids = 4, 
 		RULE_functions = 5, RULE_function = 6, RULE_main = 7, RULE_block = 8, 
-		RULE_line = 9, RULE_input = 10, RULE_output = 11, RULE_expr = 12, RULE_boolexpr = 13, 
-		RULE_ifstmt = 14, RULE_whilestmt = 15, RULE_forstmt = 16, RULE_callfunction = 17, 
-		RULE_retrn = 18, RULE_type = 19, RULE_assignOP = 20, RULE_mag = 21, RULE_term = 22, 
-		RULE_factor = 23;
+		RULE_line = 9, RULE_attribution = 10, RULE_input = 11, RULE_output = 12, 
+		RULE_ifstmt = 13, RULE_cond = 14, RULE_whilestmt = 15, RULE_forstmt = 16, 
+		RULE_callfunction = 17, RULE_retrn = 18, RULE_type = 19, RULE_assignOP = 20, 
+		RULE_expr = 21, RULE_term = 22, RULE_factor = 23, RULE_boolexpr = 24;
 	public static final String[] ruleNames = {
 		"prog", "includes", "globals", "vars", "ids", "functions", "function", 
-		"main", "block", "line", "input", "output", "expr", "boolexpr", "ifstmt", 
-		"whilestmt", "forstmt", "callfunction", "retrn", "type", "assignOP", "mag", 
-		"term", "factor"
+		"main", "block", "line", "attribution", "input", "output", "ifstmt", "cond", 
+		"whilestmt", "forstmt", "callfunction", "retrn", "type", "assignOP", "expr", 
+		"term", "factor", "boolexpr"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'+'", "'-'", "'*'", "'/'", "'#Include'", "'global'", "'main'", 
-		"'function'", null, null, null, "'if'", "'else'", "'for'", "'while'", 
-		"'writeln'", "'readln'", "'return'", "'{'", "'}'", "','", "'('", "')'", 
-		"';'", "'='", "'...'", "'!='", "'=='", "'<'", "'<='", "'>'", "'>='", "'->'", 
-		"'true'", "'false'", "'int'", "'float'", "'bool'", "'string'"
+		null, "'#Include'", "'global'", "'main'", "'function'", null, null, null, 
+		"'if'", "'else'", "'for'", "'while'", "'writeln'", "'readln'", "'return'", 
+		"'{'", "'}'", "','", "'('", "')'", "';'", "'='", "'...'", "'!='", "'=='", 
+		"'<'", "'<='", "'>'", "'>='", "'->'", "'true'", "'false'", "'+'", "'-'", 
+		"'*'", "'/'", "'int'", "'float'", "'bool'", "'string'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, "INCLUDE", "GLOB", "MAIN", "FUNCTION", "WS", 
-		"NL", "LC", "IF", "ELSE", "FOR", "WHILE", "WRITE", "READ", "RET", "OP", 
-		"CL", "SEP", "OPP", "CLP", "EOL", "AT", "RNG", "NEG", "EQ", "LESS", "LESSEQ", 
-		"GREATER", "GREATEREQ", "CALL", "TRUE", "FALSE", "INT", "FLOAT", "BOOLEAN", 
-		"STRING", "ID", "NUM", "STR"
+		null, "INCLUDE", "GLOB", "MAIN", "FUNCTION", "WS", "NL", "LC", "IF", "ELSE", 
+		"FOR", "WHILE", "WRITE", "READ", "RET", "OP", "CL", "SEP", "OPP", "CLP", 
+		"EOL", "AT", "RNG", "NEG", "EQ", "LESS", "LESSEQ", "GREATER", "GREATEREQ", 
+		"CALL", "TRUE", "FALSE", "PLUS", "MINUM", "MULT", "DIV", "INT", "FLOAT", 
+		"BOOLEAN", "STRING", "ID", "NUM", "STR"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -140,37 +140,37 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(51);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==INCLUDE) {
 				{
-				setState(48);
+				setState(50);
 				includes();
 				}
 			}
 
-			setState(52);
+			setState(54);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==GLOB) {
 				{
-				setState(51);
+				setState(53);
 				globals();
 				}
 			}
 
-			setState(55);
+			setState(57);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING))) != 0)) {
 				{
-				setState(54);
+				setState(56);
 				functions();
 				}
 			}
 
-			setState(57);
+			setState(59);
 			main();
 			}
 		}
@@ -220,19 +220,19 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61); 
+			setState(63); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(59);
+				setState(61);
 				match(INCLUDE);
-				setState(60);
+				setState(62);
 				match(STR);
 				}
 				}
-				setState(63); 
+				setState(65); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==INCLUDE );
@@ -281,13 +281,13 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
-			match(GLOB);
-			setState(66);
-			match(OP);
 			setState(67);
-			vars();
+			match(GLOB);
 			setState(68);
+			match(OP);
+			setState(69);
+			vars();
+			setState(70);
 			match(CL);
 			}
 		}
@@ -345,7 +345,7 @@ public class CMCGrammarParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74); 
+			setState(76); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -353,11 +353,11 @@ public class CMCGrammarParser extends Parser {
 				case 1:
 					{
 					{
-					setState(70);
-					type();
-					setState(71);
-					ids();
 					setState(72);
+					type();
+					setState(73);
+					ids();
+					setState(74);
 					match(EOL);
 					}
 					}
@@ -365,7 +365,7 @@ public class CMCGrammarParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(76); 
+				setState(78); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -411,24 +411,24 @@ public class CMCGrammarParser extends Parser {
 		IdsContext _localctx = new IdsContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_ids);
 		try {
-			setState(82);
+			setState(84);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(78);
+				setState(80);
 				match(ID);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(79);
-				match(ID);
-				setState(80);
-				match(SEP);
 				setState(81);
+				match(ID);
+				setState(82);
+				match(SEP);
+				setState(83);
 				ids();
 				}
 				break;
@@ -478,17 +478,17 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(85); 
+			setState(87); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(84);
+				setState(86);
 				function();
 				}
 				}
-				setState(87); 
+				setState(89); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING))) != 0) );
@@ -552,47 +552,47 @@ public class CMCGrammarParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
-			type();
-			setState(90);
-			match(ID);
 			setState(91);
+			type();
+			setState(92);
+			match(ID);
+			setState(93);
 			match(OPP);
-			setState(104);
+			setState(106);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING))) != 0)) {
 				{
-				setState(98);
+				setState(100);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(92);
-						type();
-						setState(93);
-						match(ID);
 						setState(94);
+						type();
+						setState(95);
+						match(ID);
+						setState(96);
 						match(SEP);
 						}
 						} 
 					}
-					setState(100);
+					setState(102);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 				}
-				setState(101);
+				setState(103);
 				type();
-				setState(102);
+				setState(104);
 				match(ID);
 				}
 			}
 
-			setState(106);
+			setState(108);
 			match(CLP);
-			setState(107);
+			setState(109);
 			block();
 			}
 		}
@@ -637,9 +637,9 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(109);
+			setState(111);
 			match(MAIN);
-			setState(110);
+			setState(112);
 			block();
 			}
 		}
@@ -689,23 +689,23 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
+			setState(114);
 			match(OP);
-			setState(114); 
+			setState(116); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(113);
+				setState(115);
 				line();
 				}
 				}
-				setState(116); 
+				setState(118); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IF) | (1L << FOR) | (1L << WHILE) | (1L << WRITE) | (1L << READ) | (1L << RET) | (1L << OPP) | (1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0) );
-			setState(118);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IF) | (1L << FOR) | (1L << WHILE) | (1L << WRITE) | (1L << READ) | (1L << RET) | (1L << OPP) | (1L << TRUE) | (1L << FALSE) | (1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING) | (1L << ID) | (1L << NUM) | (1L << STR))) != 0) );
+			setState(120);
 			match(CL);
 			}
 		}
@@ -721,49 +721,209 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class LineContext extends ParserRuleContext {
-		public VarsContext vars() {
-			return getRuleContext(VarsContext.class,0);
-		}
-		public InputContext input() {
-			return getRuleContext(InputContext.class,0);
-		}
-		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
-		public OutputContext output() {
-			return getRuleContext(OutputContext.class,0);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public IfstmtContext ifstmt() {
-			return getRuleContext(IfstmtContext.class,0);
-		}
-		public WhilestmtContext whilestmt() {
-			return getRuleContext(WhilestmtContext.class,0);
-		}
-		public ForstmtContext forstmt() {
-			return getRuleContext(ForstmtContext.class,0);
-		}
-		public CallfunctionContext callfunction() {
-			return getRuleContext(CallfunctionContext.class,0);
-		}
-		public RetrnContext retrn() {
-			return getRuleContext(RetrnContext.class,0);
-		}
 		public LineContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_line; }
+	 
+		public LineContext() { }
+		public void copyFrom(LineContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ExprLineContext extends LineContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public ExprLineContext(LineContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterLine(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExprLine(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitLine(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExprLine(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitLine(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExprLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class WhileLineContext extends LineContext {
+		public WhilestmtContext whilestmt() {
+			return getRuleContext(WhilestmtContext.class,0);
+		}
+		public WhileLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterWhileLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitWhileLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitWhileLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class AttrLineContext extends LineContext {
+		public AttributionContext attribution() {
+			return getRuleContext(AttributionContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public AttrLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterAttrLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitAttrLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitAttrLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class InputLineContext extends LineContext {
+		public InputContext input() {
+			return getRuleContext(InputContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public InputLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterInputLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitInputLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitInputLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ReturnLineContext extends LineContext {
+		public RetrnContext retrn() {
+			return getRuleContext(RetrnContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public ReturnLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterReturnLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitReturnLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitReturnLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FuncLineContext extends LineContext {
+		public CallfunctionContext callfunction() {
+			return getRuleContext(CallfunctionContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public FuncLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFuncLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFuncLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFuncLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class VarDeclartContext extends LineContext {
+		public VarsContext vars() {
+			return getRuleContext(VarsContext.class,0);
+		}
+		public VarDeclartContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterVarDeclart(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitVarDeclart(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitVarDeclart(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class OutputLineContext extends LineContext {
+		public OutputContext output() {
+			return getRuleContext(OutputContext.class,0);
+		}
+		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
+		public OutputLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterOutputLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitOutputLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitOutputLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ForLineContext extends LineContext {
+		public ForstmtContext forstmt() {
+			return getRuleContext(ForstmtContext.class,0);
+		}
+		public ForLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterForLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitForLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitForLine(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IfLineContext extends LineContext {
+		public IfstmtContext ifstmt() {
+			return getRuleContext(IfstmtContext.class,0);
+		}
+		public IfLineContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterIfLine(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitIfLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitIfLine(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -771,88 +931,100 @@ public class CMCGrammarParser extends Parser {
 	public final LineContext line() throws RecognitionException {
 		LineContext _localctx = new LineContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_line);
-		int _la;
 		try {
-			setState(138);
+			setState(144);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
+				_localctx = new VarDeclartContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(120);
+				setState(122);
 				vars();
 				}
 				break;
 			case 2:
+				_localctx = new AttrLineContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(121);
-				input();
-				setState(122);
+				setState(123);
+				attribution();
+				setState(124);
 				match(EOL);
 				}
 				break;
 			case 3:
+				_localctx = new InputLineContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(124);
-				output();
-				setState(125);
+				setState(126);
+				input();
+				setState(127);
 				match(EOL);
 				}
 				break;
 			case 4:
+				_localctx = new OutputLineContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(127);
-				expr();
 				setState(129);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==EOL) {
-					{
-					setState(128);
-					match(EOL);
-					}
-				}
-
-				}
-				break;
-			case 5:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(131);
-				ifstmt();
-				}
-				break;
-			case 6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(132);
-				whilestmt();
-				}
-				break;
-			case 7:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(133);
-				forstmt();
-				}
-				break;
-			case 8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(134);
-				callfunction();
-				setState(135);
+				output();
+				setState(130);
 				match(EOL);
 				}
 				break;
-			case 9:
-				enterOuterAlt(_localctx, 9);
+			case 5:
+				_localctx = new ExprLineContext(_localctx);
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(132);
+				expr();
+				setState(133);
+				match(EOL);
+				}
+				break;
+			case 6:
+				_localctx = new IfLineContext(_localctx);
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(135);
+				ifstmt();
+				}
+				break;
+			case 7:
+				_localctx = new WhileLineContext(_localctx);
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(136);
+				whilestmt();
+				}
+				break;
+			case 8:
+				_localctx = new ForLineContext(_localctx);
+				enterOuterAlt(_localctx, 8);
 				{
 				setState(137);
+				forstmt();
+				}
+				break;
+			case 9:
+				_localctx = new ReturnLineContext(_localctx);
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(138);
 				retrn();
+				setState(139);
+				match(EOL);
+				}
+				break;
+			case 10:
+				_localctx = new FuncLineContext(_localctx);
+				enterOuterAlt(_localctx, 10);
+				{
+				setState(141);
+				callfunction();
+				setState(142);
+				match(EOL);
 				}
 				break;
 			}
@@ -868,43 +1040,102 @@ public class CMCGrammarParser extends Parser {
 		return _localctx;
 	}
 
-	public static class InputContext extends ParserRuleContext {
-		public TerminalNode READ() { return getToken(CMCGrammarParser.READ, 0); }
-		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
+	public static class AttributionContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
-		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public TerminalNode AT() { return getToken(CMCGrammarParser.AT, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public AttributionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_attribution; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterAttribution(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitAttribution(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitAttribution(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final AttributionContext attribution() throws RecognitionException {
+		AttributionContext _localctx = new AttributionContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_attribution);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(146);
+			match(ID);
+			setState(147);
+			match(AT);
+			setState(148);
+			expr();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class InputContext extends ParserRuleContext {
 		public InputContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_input; }
+	 
+		public InputContext() { }
+		public void copyFrom(InputContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class InputValueContext extends InputContext {
+		public TerminalNode READ() { return getToken(CMCGrammarParser.READ, 0); }
+		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
+		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
+		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public InputValueContext(InputContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterInput(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterInputValue(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitInput(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitInputValue(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitInput(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitInputValue(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final InputContext input() throws RecognitionException {
 		InputContext _localctx = new InputContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_input);
+		enterRule(_localctx, 22, RULE_input);
 		try {
+			_localctx = new InputValueContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(140);
+			setState(150);
 			match(READ);
-			setState(141);
+			setState(151);
 			match(OPP);
-			setState(142);
+			setState(152);
 			match(ID);
-			setState(143);
+			setState(153);
 			match(CLP);
 			}
 		}
@@ -920,195 +1151,92 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class OutputContext extends ParserRuleContext {
-		public TerminalNode WRITE() { return getToken(CMCGrammarParser.WRITE, 0); }
-		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
-		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
-		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
-		public TerminalNode STR() { return getToken(CMCGrammarParser.STR, 0); }
 		public OutputContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_output; }
+	 
+		public OutputContext() { }
+		public void copyFrom(OutputContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class PrintIdContext extends OutputContext {
+		public TerminalNode WRITE() { return getToken(CMCGrammarParser.WRITE, 0); }
+		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
+		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
+		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public PrintIdContext(OutputContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterOutput(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterPrintId(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitOutput(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitPrintId(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitOutput(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitPrintId(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PrintStrContext extends OutputContext {
+		public TerminalNode WRITE() { return getToken(CMCGrammarParser.WRITE, 0); }
+		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
+		public TerminalNode STR() { return getToken(CMCGrammarParser.STR, 0); }
+		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public PrintStrContext(OutputContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterPrintStr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitPrintStr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitPrintStr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final OutputContext output() throws RecognitionException {
 		OutputContext _localctx = new OutputContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_output);
-		try {
-			setState(153);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(145);
-				match(WRITE);
-				setState(146);
-				match(OPP);
-				setState(147);
-				match(ID);
-				setState(148);
-				match(CLP);
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(149);
-				match(WRITE);
-				setState(150);
-				match(OPP);
-				setState(151);
-				match(STR);
-				setState(152);
-				match(CLP);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
-		public AssignOPContext assignOP() {
-			return getRuleContext(AssignOPContext.class,0);
-		}
-		public MagContext mag() {
-			return getRuleContext(MagContext.class,0);
-		}
-		public TerminalNode AT() { return getToken(CMCGrammarParser.AT, 0); }
-		public BoolexprContext boolexpr() {
-			return getRuleContext(BoolexprContext.class,0);
-		}
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExpr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExpr(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ExprContext expr() throws RecognitionException {
-		ExprContext _localctx = new ExprContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_expr);
+		enterRule(_localctx, 24, RULE_output);
 		try {
 			setState(163);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
+				_localctx = new PrintIdContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(155);
-				match(ID);
+				match(WRITE);
 				setState(156);
-				assignOP();
+				match(OPP);
 				setState(157);
-				mag(0);
+				match(ID);
+				setState(158);
+				match(CLP);
 				}
 				break;
 			case 2:
+				_localctx = new PrintStrContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(159);
-				match(ID);
+				match(WRITE);
 				setState(160);
-				match(AT);
+				match(OPP);
 				setState(161);
-				boolexpr();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
+				match(STR);
 				setState(162);
-				mag(0);
+				match(CLP);
 				}
 				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class BoolexprContext extends ParserRuleContext {
-		public TerminalNode TRUE() { return getToken(CMCGrammarParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(CMCGrammarParser.FALSE, 0); }
-		public BoolexprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_boolexpr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterBoolexpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitBoolexpr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitBoolexpr(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final BoolexprContext boolexpr() throws RecognitionException {
-		BoolexprContext _localctx = new BoolexprContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_boolexpr);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(165);
-			_la = _input.LA(1);
-			if ( !(_la==TRUE || _la==FALSE) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -1123,77 +1251,212 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class IfstmtContext extends ParserRuleContext {
+		public IfstmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_ifstmt; }
+	 
+		public IfstmtContext() { }
+		public void copyFrom(IfstmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class IffStmtContext extends IfstmtContext {
+		public BlockContext bloco1;
 		public TerminalNode IF() { return getToken(CMCGrammarParser.IF, 0); }
 		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public CondContext cond() {
+			return getRuleContext(CondContext.class,0);
 		}
 		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public BlockContext block() {
+			return getRuleContext(BlockContext.class,0);
+		}
+		public IffStmtContext(IfstmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterIffStmt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitIffStmt(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitIffStmt(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IfStmtElseContext extends IfstmtContext {
+		public BlockContext bloco1;
+		public BlockContext bloco2;
+		public TerminalNode IF() { return getToken(CMCGrammarParser.IF, 0); }
+		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
+		public CondContext cond() {
+			return getRuleContext(CondContext.class,0);
+		}
+		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
+		public TerminalNode ELSE() { return getToken(CMCGrammarParser.ELSE, 0); }
 		public List<BlockContext> block() {
 			return getRuleContexts(BlockContext.class);
 		}
 		public BlockContext block(int i) {
 			return getRuleContext(BlockContext.class,i);
 		}
-		public TerminalNode ELSE() { return getToken(CMCGrammarParser.ELSE, 0); }
-		public IfstmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ifstmt; }
+		public IfStmtElseContext(IfstmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterIfstmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterIfStmtElse(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitIfstmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitIfStmtElse(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitIfstmt(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitIfStmtElse(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final IfstmtContext ifstmt() throws RecognitionException {
 		IfstmtContext _localctx = new IfstmtContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_ifstmt);
+		enterRule(_localctx, 26, RULE_ifstmt);
 		try {
-			setState(181);
+			setState(179);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
+				_localctx = new IffStmtContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(167);
+				setState(165);
 				match(IF);
-				setState(168);
+				setState(166);
 				match(OPP);
-				setState(169);
-				expr();
-				setState(170);
+				setState(167);
+				cond();
+				setState(168);
 				match(CLP);
-				setState(171);
-				block();
+				setState(169);
+				((IffStmtContext)_localctx).bloco1 = block();
 				}
 				break;
 			case 2:
+				_localctx = new IfStmtElseContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(173);
+				setState(171);
 				match(IF);
-				setState(174);
+				setState(172);
 				match(OPP);
-				setState(175);
-				expr();
-				setState(176);
+				setState(173);
+				cond();
+				setState(174);
 				match(CLP);
-				setState(177);
-				block();
-				setState(178);
+				setState(175);
+				((IfStmtElseContext)_localctx).bloco1 = block();
+				setState(176);
 				match(ELSE);
-				setState(179);
-				block();
+				setState(177);
+				((IfStmtElseContext)_localctx).bloco2 = block();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class CondContext extends ParserRuleContext {
+		public CondContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_cond; }
+	 
+		public CondContext() { }
+		public void copyFrom(CondContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CondOprtorsContext extends CondContext {
+		public AssignOPContext operators;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public AssignOPContext assignOP() {
+			return getRuleContext(AssignOPContext.class,0);
+		}
+		public CondOprtorsContext(CondContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterCondOprtors(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitCondOprtors(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitCondOprtors(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class CondExprContext extends CondContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public CondExprContext(CondContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterCondExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitCondExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitCondExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final CondContext cond() throws RecognitionException {
+		CondContext _localctx = new CondContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_cond);
+		try {
+			setState(186);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			case 1:
+				_localctx = new CondExprContext(_localctx);
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(181);
+				expr();
+				}
+				break;
+			case 2:
+				_localctx = new CondOprtorsContext(_localctx);
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(182);
+				expr();
+				setState(183);
+				((CondOprtorsContext)_localctx).operators = assignOP();
+				setState(184);
+				expr();
 				}
 				break;
 			}
@@ -1210,30 +1473,38 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class WhilestmtContext extends ParserRuleContext {
+		public WhilestmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_whilestmt; }
+	 
+		public WhilestmtContext() { }
+		public void copyFrom(WhilestmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class WhileeStmtContext extends WhilestmtContext {
 		public TerminalNode WHILE() { return getToken(CMCGrammarParser.WHILE, 0); }
 		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public CondContext cond() {
+			return getRuleContext(CondContext.class,0);
 		}
 		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public WhilestmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_whilestmt; }
+		public WhileeStmtContext(WhilestmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterWhilestmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterWhileeStmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitWhilestmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitWhileeStmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitWhilestmt(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitWhileeStmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1242,17 +1513,18 @@ public class CMCGrammarParser extends Parser {
 		WhilestmtContext _localctx = new WhilestmtContext(_ctx, getState());
 		enterRule(_localctx, 30, RULE_whilestmt);
 		try {
+			_localctx = new WhileeStmtContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(183);
+			setState(188);
 			match(WHILE);
-			setState(184);
+			setState(189);
 			match(OPP);
-			setState(185);
-			expr();
-			setState(186);
+			setState(190);
+			cond();
+			setState(191);
 			match(CLP);
-			setState(187);
+			setState(192);
 			block();
 			}
 		}
@@ -1268,13 +1540,24 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class ForstmtContext extends ParserRuleContext {
+		public ForstmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_forstmt; }
+	 
+		public ForstmtContext() { }
+		public void copyFrom(ForstmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ForrStmtContext extends ForstmtContext {
 		public TerminalNode FOR() { return getToken(CMCGrammarParser.FOR, 0); }
 		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+		public CondContext cond() {
+			return getRuleContext(CondContext.class,0);
 		}
 		public TerminalNode RNG() { return getToken(CMCGrammarParser.RNG, 0); }
 		public TerminalNode NUM() { return getToken(CMCGrammarParser.NUM, 0); }
@@ -1282,21 +1565,18 @@ public class CMCGrammarParser extends Parser {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public ForstmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_forstmt; }
+		public ForrStmtContext(ForstmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterForstmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterForrStmt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitForstmt(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitForrStmt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitForstmt(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitForrStmt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1305,23 +1585,24 @@ public class CMCGrammarParser extends Parser {
 		ForstmtContext _localctx = new ForstmtContext(_ctx, getState());
 		enterRule(_localctx, 32, RULE_forstmt);
 		try {
+			_localctx = new ForrStmtContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(189);
-			match(FOR);
-			setState(190);
-			match(OPP);
-			setState(191);
-			type();
-			setState(192);
-			expr();
-			setState(193);
-			match(RNG);
 			setState(194);
-			match(NUM);
+			match(FOR);
 			setState(195);
-			match(CLP);
+			match(OPP);
 			setState(196);
+			type();
+			setState(197);
+			cond();
+			setState(198);
+			match(RNG);
+			setState(199);
+			match(NUM);
+			setState(200);
+			match(CLP);
+			setState(201);
 			block();
 			}
 		}
@@ -1376,91 +1657,91 @@ public class CMCGrammarParser extends Parser {
 		enterRule(_localctx, 34, RULE_callfunction);
 		try {
 			int _alt;
-			setState(229);
+			setState(234);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(198);
+				setState(203);
 				match(ID);
-				setState(199);
+				setState(204);
 				match(CALL);
-				setState(200);
+				setState(205);
 				match(ID);
-				setState(201);
+				setState(206);
 				match(OPP);
 				{
-				setState(206);
+				setState(211);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(202);
+						setState(207);
 						match(ID);
-						setState(203);
+						setState(208);
 						match(SEP);
 						}
 						} 
 					}
-					setState(208);
+					setState(213);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 				}
-				setState(209);
+				setState(214);
 				match(ID);
 				}
-				setState(211);
+				setState(216);
 				match(CLP);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(212);
+				setState(217);
 				match(ID);
-				setState(213);
+				setState(218);
 				match(CALL);
-				setState(214);
+				setState(219);
 				match(ID);
-				setState(215);
+				setState(220);
 				match(OPP);
 				{
-				setState(220);
+				setState(225);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(216);
+						setState(221);
 						match(NUM);
-						setState(217);
+						setState(222);
 						match(SEP);
 						}
 						} 
 					}
-					setState(222);
+					setState(227);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,15,_ctx);
 				}
-				setState(223);
+				setState(228);
 				match(NUM);
 				}
-				setState(225);
+				setState(230);
 				match(CLP);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(226);
+				setState(231);
 				match(ID);
-				setState(227);
+				setState(232);
 				match(OPP);
-				setState(228);
+				setState(233);
 				match(CLP);
 				}
 				break;
@@ -1480,7 +1761,6 @@ public class CMCGrammarParser extends Parser {
 	public static class RetrnContext extends ParserRuleContext {
 		public TerminalNode RET() { return getToken(CMCGrammarParser.RET, 0); }
 		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
-		public TerminalNode EOL() { return getToken(CMCGrammarParser.EOL, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -1507,29 +1787,25 @@ public class CMCGrammarParser extends Parser {
 		RetrnContext _localctx = new RetrnContext(_ctx, getState());
 		enterRule(_localctx, 36, RULE_retrn);
 		try {
-			setState(238);
+			setState(240);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(231);
+				setState(236);
 				match(RET);
-				setState(232);
+				setState(237);
 				match(ID);
-				setState(233);
-				match(EOL);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(234);
+				setState(238);
 				match(RET);
-				setState(235);
+				setState(239);
 				expr();
-				setState(236);
-				match(EOL);
 				}
 				break;
 			}
@@ -1576,7 +1852,7 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(240);
+			setState(242);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << BOOLEAN) | (1L << STRING))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1601,8 +1877,8 @@ public class CMCGrammarParser extends Parser {
 
 	public static class AssignOPContext extends ParserRuleContext {
 		public TerminalNode AT() { return getToken(CMCGrammarParser.AT, 0); }
-		public TerminalNode NEG() { return getToken(CMCGrammarParser.NEG, 0); }
 		public TerminalNode EQ() { return getToken(CMCGrammarParser.EQ, 0); }
+		public TerminalNode NEG() { return getToken(CMCGrammarParser.NEG, 0); }
 		public TerminalNode LESS() { return getToken(CMCGrammarParser.LESS, 0); }
 		public TerminalNode LESSEQ() { return getToken(CMCGrammarParser.LESSEQ, 0); }
 		public TerminalNode GREATER() { return getToken(CMCGrammarParser.GREATER, 0); }
@@ -1633,7 +1909,7 @@ public class CMCGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(242);
+			setState(244);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AT) | (1L << NEG) | (1L << EQ) | (1L << LESS) | (1L << LESSEQ) | (1L << GREATER) | (1L << GREATEREQ))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1656,94 +1932,122 @@ public class CMCGrammarParser extends Parser {
 		return _localctx;
 	}
 
-	public static class MagContext extends ParserRuleContext {
+	public static class ExprContext extends ParserRuleContext {
+		public ExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expr; }
+	 
+		public ExprContext() { }
+		public void copyFrom(ExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ExprPlusContext extends ExprContext {
 		public TermContext term() {
 			return getRuleContext(TermContext.class,0);
 		}
-		public MagContext mag() {
-			return getRuleContext(MagContext.class,0);
+		public TerminalNode PLUS() { return getToken(CMCGrammarParser.PLUS, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
 		}
-		public MagContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_mag; }
+		public ExprPlusContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterMag(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExprPlus(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitMag(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExprPlus(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitMag(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExprPlus(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprMinumContext extends ExprContext {
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
+		public TerminalNode MINUM() { return getToken(CMCGrammarParser.MINUM, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ExprMinumContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExprMinum(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExprMinum(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExprMinum(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprTermContext extends ExprContext {
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
+		public ExprTermContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExprTerm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExprTerm(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExprTerm(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final MagContext mag() throws RecognitionException {
-		return mag(0);
-	}
-
-	private MagContext mag(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		MagContext _localctx = new MagContext(_ctx, _parentState);
-		MagContext _prevctx = _localctx;
-		int _startState = 42;
-		enterRecursionRule(_localctx, 42, RULE_mag, _p);
+	public final ExprContext expr() throws RecognitionException {
+		ExprContext _localctx = new ExprContext(_ctx, getState());
+		enterRule(_localctx, 42, RULE_expr);
 		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(245);
-			term(0);
-			}
-			_ctx.stop = _input.LT(-1);
 			setState(255);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					setState(253);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
-					case 1:
-						{
-						_localctx = new MagContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_mag);
-						setState(247);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(248);
-						match(T__0);
-						setState(249);
-						term(0);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new MagContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_mag);
-						setState(250);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(251);
-						match(T__1);
-						setState(252);
-						term(0);
-						}
-						break;
-					}
-					} 
+			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
+			case 1:
+				_localctx = new ExprPlusContext(_localctx);
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(246);
+				term(0);
+				setState(247);
+				match(PLUS);
+				setState(248);
+				expr();
 				}
-				setState(257);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
-			}
+				break;
+			case 2:
+				_localctx = new ExprMinumContext(_localctx);
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(250);
+				term(0);
+				setState(251);
+				match(MINUM);
+				setState(252);
+				expr();
+				}
+				break;
+			case 3:
+				_localctx = new ExprTermContext(_localctx);
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(254);
+				term(0);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -1752,34 +2056,84 @@ public class CMCGrammarParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
 
 	public static class TermContext extends ParserRuleContext {
-		public FactorContext factor() {
-			return getRuleContext(FactorContext.class,0);
-		}
-		public TermContext term() {
-			return getRuleContext(TermContext.class,0);
-		}
-		public TerminalNode SEP() { return getToken(CMCGrammarParser.SEP, 0); }
 		public TermContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_term; }
+	 
+		public TermContext() { }
+		public void copyFrom(TermContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class TermDivContext extends TermContext {
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
+		public TerminalNode DIV() { return getToken(CMCGrammarParser.DIV, 0); }
+		public FactorContext factor() {
+			return getRuleContext(FactorContext.class,0);
+		}
+		public TermDivContext(TermContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterTerm(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterTermDiv(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitTerm(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitTermDiv(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitTerm(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitTermDiv(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class TermFactorContext extends TermContext {
+		public FactorContext factor() {
+			return getRuleContext(FactorContext.class,0);
+		}
+		public TermFactorContext(TermContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterTermFactor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitTermFactor(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitTermFactor(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class TermMultContext extends TermContext {
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
+		public TerminalNode MULT() { return getToken(CMCGrammarParser.MULT, 0); }
+		public FactorContext factor() {
+			return getRuleContext(FactorContext.class,0);
+		}
+		public TermMultContext(TermContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterTermMult(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitTermMult(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitTermMult(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1800,63 +2154,55 @@ public class CMCGrammarParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(259);
+			_localctx = new TermFactorContext(_localctx);
+			_ctx = _localctx;
+			_prevctx = _localctx;
+
+			setState(258);
 			factor();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(272);
+			setState(268);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,22,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(270);
+					setState(266);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
 					case 1:
 						{
-						_localctx = new TermContext(_parentctx, _parentState);
+						_localctx = new TermMultContext(new TermContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_term);
+						setState(260);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(261);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						match(MULT);
 						setState(262);
-						match(T__2);
-						setState(263);
 						factor();
 						}
 						break;
 					case 2:
 						{
-						_localctx = new TermContext(_parentctx, _parentState);
+						_localctx = new TermDivContext(new TermContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_term);
-						setState(264);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(265);
-						match(T__3);
-						setState(266);
-						factor();
-						}
-						break;
-					case 3:
-						{
-						_localctx = new TermContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_term);
-						setState(267);
+						setState(263);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(268);
-						match(SEP);
-						setState(269);
+						setState(264);
+						match(DIV);
+						setState(265);
 						factor();
 						}
 						break;
 					}
 					} 
 				}
-				setState(274);
+				setState(270);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,22,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 			}
 			}
 		}
@@ -1872,29 +2218,104 @@ public class CMCGrammarParser extends Parser {
 	}
 
 	public static class FactorContext extends ParserRuleContext {
+		public FactorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_factor; }
+	 
+		public FactorContext() { }
+		public void copyFrom(FactorContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FactorIdContext extends FactorContext {
+		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
+		public FactorIdContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFactorId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFactorId(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFactorId(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FactorStrContext extends FactorContext {
+		public TerminalNode STR() { return getToken(CMCGrammarParser.STR, 0); }
+		public FactorStrContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFactorStr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFactorStr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFactorStr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FactorBoolContext extends FactorContext {
+		public BoolexprContext boolexpr() {
+			return getRuleContext(BoolexprContext.class,0);
+		}
+		public FactorBoolContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFactorBool(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFactorBool(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFactorBool(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FactorNumContext extends FactorContext {
+		public TerminalNode NUM() { return getToken(CMCGrammarParser.NUM, 0); }
+		public FactorNumContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFactorNum(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFactorNum(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFactorNum(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprParntContext extends FactorContext {
 		public TerminalNode OPP() { return getToken(CMCGrammarParser.OPP, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public TerminalNode CLP() { return getToken(CMCGrammarParser.CLP, 0); }
-		public TerminalNode ID() { return getToken(CMCGrammarParser.ID, 0); }
-		public TerminalNode NUM() { return getToken(CMCGrammarParser.NUM, 0); }
-		public TerminalNode STR() { return getToken(CMCGrammarParser.STR, 0); }
-		public FactorContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_factor; }
+		public ExprParntContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFactor(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterExprParnt(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFactor(this);
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitExprParnt(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFactor(this);
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitExprParnt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1903,39 +2324,136 @@ public class CMCGrammarParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 46, RULE_factor);
 		try {
-			setState(282);
+			setState(279);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OPP:
+				_localctx = new ExprParntContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(275);
+				setState(271);
 				match(OPP);
-				setState(276);
+				setState(272);
 				expr();
-				setState(277);
+				setState(273);
 				match(CLP);
 				}
 				break;
 			case ID:
+				_localctx = new FactorIdContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(279);
+				setState(275);
 				match(ID);
 				}
 				break;
 			case NUM:
+				_localctx = new FactorNumContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(280);
+				setState(276);
 				match(NUM);
 				}
 				break;
 			case STR:
+				_localctx = new FactorStrContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(281);
+				setState(277);
 				match(STR);
+				}
+				break;
+			case TRUE:
+			case FALSE:
+				_localctx = new FactorBoolContext(_localctx);
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(278);
+				boolexpr();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class BoolexprContext extends ParserRuleContext {
+		public BoolexprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_boolexpr; }
+	 
+		public BoolexprContext() { }
+		public void copyFrom(BoolexprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FalseValueContext extends BoolexprContext {
+		public TerminalNode FALSE() { return getToken(CMCGrammarParser.FALSE, 0); }
+		public FalseValueContext(BoolexprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterFalseValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitFalseValue(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitFalseValue(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class TrueValueContext extends BoolexprContext {
+		public TerminalNode TRUE() { return getToken(CMCGrammarParser.TRUE, 0); }
+		public TrueValueContext(BoolexprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).enterTrueValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMCGrammarListener ) ((CMCGrammarListener)listener).exitTrueValue(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMCGrammarVisitor ) return ((CMCGrammarVisitor<? extends T>)visitor).visitTrueValue(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final BoolexprContext boolexpr() throws RecognitionException {
+		BoolexprContext _localctx = new BoolexprContext(_ctx, getState());
+		enterRule(_localctx, 48, RULE_boolexpr);
+		try {
+			setState(283);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case TRUE:
+				_localctx = new TrueValueContext(_localctx);
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(281);
+				match(TRUE);
+				}
+				break;
+			case FALSE:
+				_localctx = new FalseValueContext(_localctx);
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(282);
+				match(FALSE);
 				}
 				break;
 			default:
@@ -1955,14 +2473,12 @@ public class CMCGrammarParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 21:
-			return mag_sempred((MagContext)_localctx, predIndex);
 		case 22:
 			return term_sempred((TermContext)_localctx, predIndex);
 		}
 		return true;
 	}
-	private boolean mag_sempred(MagContext _localctx, int predIndex) {
+	private boolean term_sempred(TermContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
 			return precpred(_ctx, 3);
@@ -1971,114 +2487,103 @@ public class CMCGrammarParser extends Parser {
 		}
 		return true;
 	}
-	private boolean term_sempred(TermContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 2:
-			return precpred(_ctx, 4);
-		case 3:
-			return precpred(_ctx, 3);
-		case 4:
-			return precpred(_ctx, 2);
-		}
-		return true;
-	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3,\u011f\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3,\u0120\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\3\2\5\2\64\n\2\3\2\5\2\67\n\2\3\2\5\2:\n\2\3\2\3\2\3\3\3\3\6\3@\n\3\r"+
-		"\3\16\3A\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\6\5M\n\5\r\5\16\5N\3\6\3"+
-		"\6\3\6\3\6\5\6U\n\6\3\7\6\7X\n\7\r\7\16\7Y\3\b\3\b\3\b\3\b\3\b\3\b\3\b"+
-		"\7\bc\n\b\f\b\16\bf\13\b\3\b\3\b\3\b\5\bk\n\b\3\b\3\b\3\b\3\t\3\t\3\t"+
-		"\3\n\3\n\6\nu\n\n\r\n\16\nv\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
-		"\3\13\3\13\5\13\u0084\n\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u008d"+
-		"\n\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\r\u009c\n"+
-		"\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00a6\n\16\3\17\3\17\3"+
-		"\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\5"+
-		"\20\u00b8\n\20\3\21\3\21\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22"+
-		"\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\23\7\23\u00cf\n\23\f\23"+
-		"\16\23\u00d2\13\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\7\23\u00dd"+
-		"\n\23\f\23\16\23\u00e0\13\23\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u00e8"+
-		"\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u00f1\n\24\3\25\3\25\3\26"+
-		"\3\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\7\27\u0100\n\27\f\27"+
-		"\16\27\u0103\13\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3"+
-		"\30\3\30\7\30\u0111\n\30\f\30\16\30\u0114\13\30\3\31\3\31\3\31\3\31\3"+
-		"\31\3\31\3\31\5\31\u011d\n\31\3\31\2\4,.\32\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\36 \"$&(*,.\60\2\5\3\2$%\3\2&)\4\2\33\33\35\"\u012a\2\63\3\2"+
-		"\2\2\4?\3\2\2\2\6C\3\2\2\2\bL\3\2\2\2\nT\3\2\2\2\fW\3\2\2\2\16[\3\2\2"+
-		"\2\20o\3\2\2\2\22r\3\2\2\2\24\u008c\3\2\2\2\26\u008e\3\2\2\2\30\u009b"+
-		"\3\2\2\2\32\u00a5\3\2\2\2\34\u00a7\3\2\2\2\36\u00b7\3\2\2\2 \u00b9\3\2"+
-		"\2\2\"\u00bf\3\2\2\2$\u00e7\3\2\2\2&\u00f0\3\2\2\2(\u00f2\3\2\2\2*\u00f4"+
-		"\3\2\2\2,\u00f6\3\2\2\2.\u0104\3\2\2\2\60\u011c\3\2\2\2\62\64\5\4\3\2"+
-		"\63\62\3\2\2\2\63\64\3\2\2\2\64\66\3\2\2\2\65\67\5\6\4\2\66\65\3\2\2\2"+
-		"\66\67\3\2\2\2\679\3\2\2\28:\5\f\7\298\3\2\2\29:\3\2\2\2:;\3\2\2\2;<\5"+
-		"\20\t\2<\3\3\2\2\2=>\7\7\2\2>@\7,\2\2?=\3\2\2\2@A\3\2\2\2A?\3\2\2\2AB"+
-		"\3\2\2\2B\5\3\2\2\2CD\7\b\2\2DE\7\25\2\2EF\5\b\5\2FG\7\26\2\2G\7\3\2\2"+
-		"\2HI\5(\25\2IJ\5\n\6\2JK\7\32\2\2KM\3\2\2\2LH\3\2\2\2MN\3\2\2\2NL\3\2"+
-		"\2\2NO\3\2\2\2O\t\3\2\2\2PU\7*\2\2QR\7*\2\2RS\7\27\2\2SU\5\n\6\2TP\3\2"+
-		"\2\2TQ\3\2\2\2U\13\3\2\2\2VX\5\16\b\2WV\3\2\2\2XY\3\2\2\2YW\3\2\2\2YZ"+
-		"\3\2\2\2Z\r\3\2\2\2[\\\5(\25\2\\]\7*\2\2]j\7\30\2\2^_\5(\25\2_`\7*\2\2"+
-		"`a\7\27\2\2ac\3\2\2\2b^\3\2\2\2cf\3\2\2\2db\3\2\2\2de\3\2\2\2eg\3\2\2"+
-		"\2fd\3\2\2\2gh\5(\25\2hi\7*\2\2ik\3\2\2\2jd\3\2\2\2jk\3\2\2\2kl\3\2\2"+
-		"\2lm\7\31\2\2mn\5\22\n\2n\17\3\2\2\2op\7\t\2\2pq\5\22\n\2q\21\3\2\2\2"+
-		"rt\7\25\2\2su\5\24\13\2ts\3\2\2\2uv\3\2\2\2vt\3\2\2\2vw\3\2\2\2wx\3\2"+
-		"\2\2xy\7\26\2\2y\23\3\2\2\2z\u008d\5\b\5\2{|\5\26\f\2|}\7\32\2\2}\u008d"+
-		"\3\2\2\2~\177\5\30\r\2\177\u0080\7\32\2\2\u0080\u008d\3\2\2\2\u0081\u0083"+
-		"\5\32\16\2\u0082\u0084\7\32\2\2\u0083\u0082\3\2\2\2\u0083\u0084\3\2\2"+
-		"\2\u0084\u008d\3\2\2\2\u0085\u008d\5\36\20\2\u0086\u008d\5 \21\2\u0087"+
-		"\u008d\5\"\22\2\u0088\u0089\5$\23\2\u0089\u008a\7\32\2\2\u008a\u008d\3"+
-		"\2\2\2\u008b\u008d\5&\24\2\u008cz\3\2\2\2\u008c{\3\2\2\2\u008c~\3\2\2"+
-		"\2\u008c\u0081\3\2\2\2\u008c\u0085\3\2\2\2\u008c\u0086\3\2\2\2\u008c\u0087"+
-		"\3\2\2\2\u008c\u0088\3\2\2\2\u008c\u008b\3\2\2\2\u008d\25\3\2\2\2\u008e"+
-		"\u008f\7\23\2\2\u008f\u0090\7\30\2\2\u0090\u0091\7*\2\2\u0091\u0092\7"+
-		"\31\2\2\u0092\27\3\2\2\2\u0093\u0094\7\22\2\2\u0094\u0095\7\30\2\2\u0095"+
-		"\u0096\7*\2\2\u0096\u009c\7\31\2\2\u0097\u0098\7\22\2\2\u0098\u0099\7"+
-		"\30\2\2\u0099\u009a\7,\2\2\u009a\u009c\7\31\2\2\u009b\u0093\3\2\2\2\u009b"+
-		"\u0097\3\2\2\2\u009c\31\3\2\2\2\u009d\u009e\7*\2\2\u009e\u009f\5*\26\2"+
-		"\u009f\u00a0\5,\27\2\u00a0\u00a6\3\2\2\2\u00a1\u00a2\7*\2\2\u00a2\u00a3"+
-		"\7\33\2\2\u00a3\u00a6\5\34\17\2\u00a4\u00a6\5,\27\2\u00a5\u009d\3\2\2"+
-		"\2\u00a5\u00a1\3\2\2\2\u00a5\u00a4\3\2\2\2\u00a6\33\3\2\2\2\u00a7\u00a8"+
-		"\t\2\2\2\u00a8\35\3\2\2\2\u00a9\u00aa\7\16\2\2\u00aa\u00ab\7\30\2\2\u00ab"+
-		"\u00ac\5\32\16\2\u00ac\u00ad\7\31\2\2\u00ad\u00ae\5\22\n\2\u00ae\u00b8"+
-		"\3\2\2\2\u00af\u00b0\7\16\2\2\u00b0\u00b1\7\30\2\2\u00b1\u00b2\5\32\16"+
-		"\2\u00b2\u00b3\7\31\2\2\u00b3\u00b4\5\22\n\2\u00b4\u00b5\7\17\2\2\u00b5"+
-		"\u00b6\5\22\n\2\u00b6\u00b8\3\2\2\2\u00b7\u00a9\3\2\2\2\u00b7\u00af\3"+
-		"\2\2\2\u00b8\37\3\2\2\2\u00b9\u00ba\7\21\2\2\u00ba\u00bb\7\30\2\2\u00bb"+
-		"\u00bc\5\32\16\2\u00bc\u00bd\7\31\2\2\u00bd\u00be\5\22\n\2\u00be!\3\2"+
-		"\2\2\u00bf\u00c0\7\20\2\2\u00c0\u00c1\7\30\2\2\u00c1\u00c2\5(\25\2\u00c2"+
-		"\u00c3\5\32\16\2\u00c3\u00c4\7\34\2\2\u00c4\u00c5\7+\2\2\u00c5\u00c6\7"+
-		"\31\2\2\u00c6\u00c7\5\22\n\2\u00c7#\3\2\2\2\u00c8\u00c9\7*\2\2\u00c9\u00ca"+
-		"\7#\2\2\u00ca\u00cb\7*\2\2\u00cb\u00d0\7\30\2\2\u00cc\u00cd\7*\2\2\u00cd"+
-		"\u00cf\7\27\2\2\u00ce\u00cc\3\2\2\2\u00cf\u00d2\3\2\2\2\u00d0\u00ce\3"+
-		"\2\2\2\u00d0\u00d1\3\2\2\2\u00d1\u00d3\3\2\2\2\u00d2\u00d0\3\2\2\2\u00d3"+
-		"\u00d4\7*\2\2\u00d4\u00d5\3\2\2\2\u00d5\u00e8\7\31\2\2\u00d6\u00d7\7*"+
-		"\2\2\u00d7\u00d8\7#\2\2\u00d8\u00d9\7*\2\2\u00d9\u00de\7\30\2\2\u00da"+
-		"\u00db\7+\2\2\u00db\u00dd\7\27\2\2\u00dc\u00da\3\2\2\2\u00dd\u00e0\3\2"+
-		"\2\2\u00de\u00dc\3\2\2\2\u00de\u00df\3\2\2\2\u00df\u00e1\3\2\2\2\u00e0"+
-		"\u00de\3\2\2\2\u00e1\u00e2\7+\2\2\u00e2\u00e3\3\2\2\2\u00e3\u00e8\7\31"+
-		"\2\2\u00e4\u00e5\7*\2\2\u00e5\u00e6\7\30\2\2\u00e6\u00e8\7\31\2\2\u00e7"+
-		"\u00c8\3\2\2\2\u00e7\u00d6\3\2\2\2\u00e7\u00e4\3\2\2\2\u00e8%\3\2\2\2"+
-		"\u00e9\u00ea\7\24\2\2\u00ea\u00eb\7*\2\2\u00eb\u00f1\7\32\2\2\u00ec\u00ed"+
-		"\7\24\2\2\u00ed\u00ee\5\32\16\2\u00ee\u00ef\7\32\2\2\u00ef\u00f1\3\2\2"+
-		"\2\u00f0\u00e9\3\2\2\2\u00f0\u00ec\3\2\2\2\u00f1\'\3\2\2\2\u00f2\u00f3"+
-		"\t\3\2\2\u00f3)\3\2\2\2\u00f4\u00f5\t\4\2\2\u00f5+\3\2\2\2\u00f6\u00f7"+
-		"\b\27\1\2\u00f7\u00f8\5.\30\2\u00f8\u0101\3\2\2\2\u00f9\u00fa\f\5\2\2"+
-		"\u00fa\u00fb\7\3\2\2\u00fb\u0100\5.\30\2\u00fc\u00fd\f\4\2\2\u00fd\u00fe"+
-		"\7\4\2\2\u00fe\u0100\5.\30\2\u00ff\u00f9\3\2\2\2\u00ff\u00fc\3\2\2\2\u0100"+
-		"\u0103\3\2\2\2\u0101\u00ff\3\2\2\2\u0101\u0102\3\2\2\2\u0102-\3\2\2\2"+
-		"\u0103\u0101\3\2\2\2\u0104\u0105\b\30\1\2\u0105\u0106\5\60\31\2\u0106"+
-		"\u0112\3\2\2\2\u0107\u0108\f\6\2\2\u0108\u0109\7\5\2\2\u0109\u0111\5\60"+
-		"\31\2\u010a\u010b\f\5\2\2\u010b\u010c\7\6\2\2\u010c\u0111\5\60\31\2\u010d"+
-		"\u010e\f\4\2\2\u010e\u010f\7\27\2\2\u010f\u0111\5\60\31\2\u0110\u0107"+
-		"\3\2\2\2\u0110\u010a\3\2\2\2\u0110\u010d\3\2\2\2\u0111\u0114\3\2\2\2\u0112"+
-		"\u0110\3\2\2\2\u0112\u0113\3\2\2\2\u0113/\3\2\2\2\u0114\u0112\3\2\2\2"+
-		"\u0115\u0116\7\30\2\2\u0116\u0117\5\32\16\2\u0117\u0118\7\31\2\2\u0118"+
-		"\u011d\3\2\2\2\u0119\u011d\7*\2\2\u011a\u011d\7+\2\2\u011b\u011d\7,\2"+
-		"\2\u011c\u0115\3\2\2\2\u011c\u0119\3\2\2\2\u011c\u011a\3\2\2\2\u011c\u011b"+
-		"\3\2\2\2\u011d\61\3\2\2\2\32\63\669ANTYdjv\u0083\u008c\u009b\u00a5\u00b7"+
-		"\u00d0\u00de\u00e7\u00f0\u00ff\u0101\u0110\u0112\u011c";
+		"\4\32\t\32\3\2\5\2\66\n\2\3\2\5\29\n\2\3\2\5\2<\n\2\3\2\3\2\3\3\3\3\6"+
+		"\3B\n\3\r\3\16\3C\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\6\5O\n\5\r\5\16"+
+		"\5P\3\6\3\6\3\6\3\6\5\6W\n\6\3\7\6\7Z\n\7\r\7\16\7[\3\b\3\b\3\b\3\b\3"+
+		"\b\3\b\3\b\7\be\n\b\f\b\16\bh\13\b\3\b\3\b\3\b\5\bm\n\b\3\b\3\b\3\b\3"+
+		"\t\3\t\3\t\3\n\3\n\6\nw\n\n\r\n\16\nx\3\n\3\n\3\13\3\13\3\13\3\13\3\13"+
+		"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
+		"\3\13\3\13\3\13\5\13\u0093\n\13\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3"+
+		"\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00a6\n\16\3\17\3\17\3\17"+
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00b6\n\17"+
+		"\3\20\3\20\3\20\3\20\3\20\5\20\u00bd\n\20\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23"+
+		"\3\23\7\23\u00d4\n\23\f\23\16\23\u00d7\13\23\3\23\3\23\3\23\3\23\3\23"+
+		"\3\23\3\23\3\23\3\23\7\23\u00e2\n\23\f\23\16\23\u00e5\13\23\3\23\3\23"+
+		"\3\23\3\23\3\23\3\23\5\23\u00ed\n\23\3\24\3\24\3\24\3\24\5\24\u00f3\n"+
+		"\24\3\25\3\25\3\26\3\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\5"+
+		"\27\u0102\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\7\30\u010d"+
+		"\n\30\f\30\16\30\u0110\13\30\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\5"+
+		"\31\u011a\n\31\3\32\3\32\5\32\u011e\n\32\3\32\2\3.\33\2\4\6\b\n\f\16\20"+
+		"\22\24\26\30\32\34\36 \"$&(*,.\60\62\2\4\3\2&)\4\2\27\27\31\36\u012a\2"+
+		"\65\3\2\2\2\4A\3\2\2\2\6E\3\2\2\2\bN\3\2\2\2\nV\3\2\2\2\fY\3\2\2\2\16"+
+		"]\3\2\2\2\20q\3\2\2\2\22t\3\2\2\2\24\u0092\3\2\2\2\26\u0094\3\2\2\2\30"+
+		"\u0098\3\2\2\2\32\u00a5\3\2\2\2\34\u00b5\3\2\2\2\36\u00bc\3\2\2\2 \u00be"+
+		"\3\2\2\2\"\u00c4\3\2\2\2$\u00ec\3\2\2\2&\u00f2\3\2\2\2(\u00f4\3\2\2\2"+
+		"*\u00f6\3\2\2\2,\u0101\3\2\2\2.\u0103\3\2\2\2\60\u0119\3\2\2\2\62\u011d"+
+		"\3\2\2\2\64\66\5\4\3\2\65\64\3\2\2\2\65\66\3\2\2\2\668\3\2\2\2\679\5\6"+
+		"\4\28\67\3\2\2\289\3\2\2\29;\3\2\2\2:<\5\f\7\2;:\3\2\2\2;<\3\2\2\2<=\3"+
+		"\2\2\2=>\5\20\t\2>\3\3\2\2\2?@\7\3\2\2@B\7,\2\2A?\3\2\2\2BC\3\2\2\2CA"+
+		"\3\2\2\2CD\3\2\2\2D\5\3\2\2\2EF\7\4\2\2FG\7\21\2\2GH\5\b\5\2HI\7\22\2"+
+		"\2I\7\3\2\2\2JK\5(\25\2KL\5\n\6\2LM\7\26\2\2MO\3\2\2\2NJ\3\2\2\2OP\3\2"+
+		"\2\2PN\3\2\2\2PQ\3\2\2\2Q\t\3\2\2\2RW\7*\2\2ST\7*\2\2TU\7\23\2\2UW\5\n"+
+		"\6\2VR\3\2\2\2VS\3\2\2\2W\13\3\2\2\2XZ\5\16\b\2YX\3\2\2\2Z[\3\2\2\2[Y"+
+		"\3\2\2\2[\\\3\2\2\2\\\r\3\2\2\2]^\5(\25\2^_\7*\2\2_l\7\24\2\2`a\5(\25"+
+		"\2ab\7*\2\2bc\7\23\2\2ce\3\2\2\2d`\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg\3\2\2"+
+		"\2gi\3\2\2\2hf\3\2\2\2ij\5(\25\2jk\7*\2\2km\3\2\2\2lf\3\2\2\2lm\3\2\2"+
+		"\2mn\3\2\2\2no\7\25\2\2op\5\22\n\2p\17\3\2\2\2qr\7\5\2\2rs\5\22\n\2s\21"+
+		"\3\2\2\2tv\7\21\2\2uw\5\24\13\2vu\3\2\2\2wx\3\2\2\2xv\3\2\2\2xy\3\2\2"+
+		"\2yz\3\2\2\2z{\7\22\2\2{\23\3\2\2\2|\u0093\5\b\5\2}~\5\26\f\2~\177\7\26"+
+		"\2\2\177\u0093\3\2\2\2\u0080\u0081\5\30\r\2\u0081\u0082\7\26\2\2\u0082"+
+		"\u0093\3\2\2\2\u0083\u0084\5\32\16\2\u0084\u0085\7\26\2\2\u0085\u0093"+
+		"\3\2\2\2\u0086\u0087\5,\27\2\u0087\u0088\7\26\2\2\u0088\u0093\3\2\2\2"+
+		"\u0089\u0093\5\34\17\2\u008a\u0093\5 \21\2\u008b\u0093\5\"\22\2\u008c"+
+		"\u008d\5&\24\2\u008d\u008e\7\26\2\2\u008e\u0093\3\2\2\2\u008f\u0090\5"+
+		"$\23\2\u0090\u0091\7\26\2\2\u0091\u0093\3\2\2\2\u0092|\3\2\2\2\u0092}"+
+		"\3\2\2\2\u0092\u0080\3\2\2\2\u0092\u0083\3\2\2\2\u0092\u0086\3\2\2\2\u0092"+
+		"\u0089\3\2\2\2\u0092\u008a\3\2\2\2\u0092\u008b\3\2\2\2\u0092\u008c\3\2"+
+		"\2\2\u0092\u008f\3\2\2\2\u0093\25\3\2\2\2\u0094\u0095\7*\2\2\u0095\u0096"+
+		"\7\27\2\2\u0096\u0097\5,\27\2\u0097\27\3\2\2\2\u0098\u0099\7\17\2\2\u0099"+
+		"\u009a\7\24\2\2\u009a\u009b\7*\2\2\u009b\u009c\7\25\2\2\u009c\31\3\2\2"+
+		"\2\u009d\u009e\7\16\2\2\u009e\u009f\7\24\2\2\u009f\u00a0\7*\2\2\u00a0"+
+		"\u00a6\7\25\2\2\u00a1\u00a2\7\16\2\2\u00a2\u00a3\7\24\2\2\u00a3\u00a4"+
+		"\7,\2\2\u00a4\u00a6\7\25\2\2\u00a5\u009d\3\2\2\2\u00a5\u00a1\3\2\2\2\u00a6"+
+		"\33\3\2\2\2\u00a7\u00a8\7\n\2\2\u00a8\u00a9\7\24\2\2\u00a9\u00aa\5\36"+
+		"\20\2\u00aa\u00ab\7\25\2\2\u00ab\u00ac\5\22\n\2\u00ac\u00b6\3\2\2\2\u00ad"+
+		"\u00ae\7\n\2\2\u00ae\u00af\7\24\2\2\u00af\u00b0\5\36\20\2\u00b0\u00b1"+
+		"\7\25\2\2\u00b1\u00b2\5\22\n\2\u00b2\u00b3\7\13\2\2\u00b3\u00b4\5\22\n"+
+		"\2\u00b4\u00b6\3\2\2\2\u00b5\u00a7\3\2\2\2\u00b5\u00ad\3\2\2\2\u00b6\35"+
+		"\3\2\2\2\u00b7\u00bd\5,\27\2\u00b8\u00b9\5,\27\2\u00b9\u00ba\5*\26\2\u00ba"+
+		"\u00bb\5,\27\2\u00bb\u00bd\3\2\2\2\u00bc\u00b7\3\2\2\2\u00bc\u00b8\3\2"+
+		"\2\2\u00bd\37\3\2\2\2\u00be\u00bf\7\r\2\2\u00bf\u00c0\7\24\2\2\u00c0\u00c1"+
+		"\5\36\20\2\u00c1\u00c2\7\25\2\2\u00c2\u00c3\5\22\n\2\u00c3!\3\2\2\2\u00c4"+
+		"\u00c5\7\f\2\2\u00c5\u00c6\7\24\2\2\u00c6\u00c7\5(\25\2\u00c7\u00c8\5"+
+		"\36\20\2\u00c8\u00c9\7\30\2\2\u00c9\u00ca\7+\2\2\u00ca\u00cb\7\25\2\2"+
+		"\u00cb\u00cc\5\22\n\2\u00cc#\3\2\2\2\u00cd\u00ce\7*\2\2\u00ce\u00cf\7"+
+		"\37\2\2\u00cf\u00d0\7*\2\2\u00d0\u00d5\7\24\2\2\u00d1\u00d2\7*\2\2\u00d2"+
+		"\u00d4\7\23\2\2\u00d3\u00d1\3\2\2\2\u00d4\u00d7\3\2\2\2\u00d5\u00d3\3"+
+		"\2\2\2\u00d5\u00d6\3\2\2\2\u00d6\u00d8\3\2\2\2\u00d7\u00d5\3\2\2\2\u00d8"+
+		"\u00d9\7*\2\2\u00d9\u00da\3\2\2\2\u00da\u00ed\7\25\2\2\u00db\u00dc\7*"+
+		"\2\2\u00dc\u00dd\7\37\2\2\u00dd\u00de\7*\2\2\u00de\u00e3\7\24\2\2\u00df"+
+		"\u00e0\7+\2\2\u00e0\u00e2\7\23\2\2\u00e1\u00df\3\2\2\2\u00e2\u00e5\3\2"+
+		"\2\2\u00e3\u00e1\3\2\2\2\u00e3\u00e4\3\2\2\2\u00e4\u00e6\3\2\2\2\u00e5"+
+		"\u00e3\3\2\2\2\u00e6\u00e7\7+\2\2\u00e7\u00e8\3\2\2\2\u00e8\u00ed\7\25"+
+		"\2\2\u00e9\u00ea\7*\2\2\u00ea\u00eb\7\24\2\2\u00eb\u00ed\7\25\2\2\u00ec"+
+		"\u00cd\3\2\2\2\u00ec\u00db\3\2\2\2\u00ec\u00e9\3\2\2\2\u00ed%\3\2\2\2"+
+		"\u00ee\u00ef\7\20\2\2\u00ef\u00f3\7*\2\2\u00f0\u00f1\7\20\2\2\u00f1\u00f3"+
+		"\5,\27\2\u00f2\u00ee\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\'\3\2\2\2\u00f4"+
+		"\u00f5\t\2\2\2\u00f5)\3\2\2\2\u00f6\u00f7\t\3\2\2\u00f7+\3\2\2\2\u00f8"+
+		"\u00f9\5.\30\2\u00f9\u00fa\7\"\2\2\u00fa\u00fb\5,\27\2\u00fb\u0102\3\2"+
+		"\2\2\u00fc\u00fd\5.\30\2\u00fd\u00fe\7#\2\2\u00fe\u00ff\5,\27\2\u00ff"+
+		"\u0102\3\2\2\2\u0100\u0102\5.\30\2\u0101\u00f8\3\2\2\2\u0101\u00fc\3\2"+
+		"\2\2\u0101\u0100\3\2\2\2\u0102-\3\2\2\2\u0103\u0104\b\30\1\2\u0104\u0105"+
+		"\5\60\31\2\u0105\u010e\3\2\2\2\u0106\u0107\f\5\2\2\u0107\u0108\7$\2\2"+
+		"\u0108\u010d\5\60\31\2\u0109\u010a\f\4\2\2\u010a\u010b\7%\2\2\u010b\u010d"+
+		"\5\60\31\2\u010c\u0106\3\2\2\2\u010c\u0109\3\2\2\2\u010d\u0110\3\2\2\2"+
+		"\u010e\u010c\3\2\2\2\u010e\u010f\3\2\2\2\u010f/\3\2\2\2\u0110\u010e\3"+
+		"\2\2\2\u0111\u0112\7\24\2\2\u0112\u0113\5,\27\2\u0113\u0114\7\25\2\2\u0114"+
+		"\u011a\3\2\2\2\u0115\u011a\7*\2\2\u0116\u011a\7+\2\2\u0117\u011a\7,\2"+
+		"\2\u0118\u011a\5\62\32\2\u0119\u0111\3\2\2\2\u0119\u0115\3\2\2\2\u0119"+
+		"\u0116\3\2\2\2\u0119\u0117\3\2\2\2\u0119\u0118\3\2\2\2\u011a\61\3\2\2"+
+		"\2\u011b\u011e\7 \2\2\u011c\u011e\7!\2\2\u011d\u011b\3\2\2\2\u011d\u011c"+
+		"\3\2\2\2\u011e\63\3\2\2\2\31\658;CPV[flx\u0092\u00a5\u00b5\u00bc\u00d5"+
+		"\u00e3\u00ec\u00f2\u0101\u010c\u010e\u0119\u011d";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

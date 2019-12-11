@@ -1,13 +1,9 @@
-#Include "pepino.mc3"
-
 global {
+int z;
+}
+
+main{
+
 int x;
-}
 
-int somar(int x){
-int y;
-}
-
-main {
-int y;
 }

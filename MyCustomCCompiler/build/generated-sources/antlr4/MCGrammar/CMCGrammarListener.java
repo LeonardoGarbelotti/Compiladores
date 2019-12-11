@@ -100,85 +100,243 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitBlock(CMCGrammarParser.BlockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#line}.
+	 * Enter a parse tree produced by the {@code varDeclart}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterLine(CMCGrammarParser.LineContext ctx);
+	void enterVarDeclart(CMCGrammarParser.VarDeclartContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#line}.
+	 * Exit a parse tree produced by the {@code varDeclart}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitLine(CMCGrammarParser.LineContext ctx);
+	void exitVarDeclart(CMCGrammarParser.VarDeclartContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#input}.
+	 * Enter a parse tree produced by the {@code attrLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterInput(CMCGrammarParser.InputContext ctx);
+	void enterAttrLine(CMCGrammarParser.AttrLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#input}.
+	 * Exit a parse tree produced by the {@code attrLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitInput(CMCGrammarParser.InputContext ctx);
+	void exitAttrLine(CMCGrammarParser.AttrLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#output}.
+	 * Enter a parse tree produced by the {@code inputLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterOutput(CMCGrammarParser.OutputContext ctx);
+	void enterInputLine(CMCGrammarParser.InputLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#output}.
+	 * Exit a parse tree produced by the {@code inputLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitOutput(CMCGrammarParser.OutputContext ctx);
+	void exitInputLine(CMCGrammarParser.InputLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#expr}.
+	 * Enter a parse tree produced by the {@code outputLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpr(CMCGrammarParser.ExprContext ctx);
+	void enterOutputLine(CMCGrammarParser.OutputLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#expr}.
+	 * Exit a parse tree produced by the {@code outputLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpr(CMCGrammarParser.ExprContext ctx);
+	void exitOutputLine(CMCGrammarParser.OutputLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#boolexpr}.
+	 * Enter a parse tree produced by the {@code exprLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterBoolexpr(CMCGrammarParser.BoolexprContext ctx);
+	void enterExprLine(CMCGrammarParser.ExprLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#boolexpr}.
+	 * Exit a parse tree produced by the {@code exprLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitBoolexpr(CMCGrammarParser.BoolexprContext ctx);
+	void exitExprLine(CMCGrammarParser.ExprLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#ifstmt}.
+	 * Enter a parse tree produced by the {@code ifLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfstmt(CMCGrammarParser.IfstmtContext ctx);
+	void enterIfLine(CMCGrammarParser.IfLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#ifstmt}.
+	 * Exit a parse tree produced by the {@code ifLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfstmt(CMCGrammarParser.IfstmtContext ctx);
+	void exitIfLine(CMCGrammarParser.IfLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#whilestmt}.
+	 * Enter a parse tree produced by the {@code whileLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhilestmt(CMCGrammarParser.WhilestmtContext ctx);
+	void enterWhileLine(CMCGrammarParser.WhileLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#whilestmt}.
+	 * Exit a parse tree produced by the {@code whileLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhilestmt(CMCGrammarParser.WhilestmtContext ctx);
+	void exitWhileLine(CMCGrammarParser.WhileLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#forstmt}.
+	 * Enter a parse tree produced by the {@code forLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterForstmt(CMCGrammarParser.ForstmtContext ctx);
+	void enterForLine(CMCGrammarParser.ForLineContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#forstmt}.
+	 * Exit a parse tree produced by the {@code forLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitForstmt(CMCGrammarParser.ForstmtContext ctx);
+	void exitForLine(CMCGrammarParser.ForLineContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code returnLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnLine(CMCGrammarParser.ReturnLineContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code returnLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnLine(CMCGrammarParser.ReturnLineContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code funcLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterFuncLine(CMCGrammarParser.FuncLineContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code funcLine}
+	 * labeled alternative in {@link CMCGrammarParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitFuncLine(CMCGrammarParser.FuncLineContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CMCGrammarParser#attribution}.
+	 * @param ctx the parse tree
+	 */
+	void enterAttribution(CMCGrammarParser.AttributionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMCGrammarParser#attribution}.
+	 * @param ctx the parse tree
+	 */
+	void exitAttribution(CMCGrammarParser.AttributionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code inputValue}
+	 * labeled alternative in {@link CMCGrammarParser#input}.
+	 * @param ctx the parse tree
+	 */
+	void enterInputValue(CMCGrammarParser.InputValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code inputValue}
+	 * labeled alternative in {@link CMCGrammarParser#input}.
+	 * @param ctx the parse tree
+	 */
+	void exitInputValue(CMCGrammarParser.InputValueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code printId}
+	 * labeled alternative in {@link CMCGrammarParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintId(CMCGrammarParser.PrintIdContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printId}
+	 * labeled alternative in {@link CMCGrammarParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintId(CMCGrammarParser.PrintIdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code printStr}
+	 * labeled alternative in {@link CMCGrammarParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStr(CMCGrammarParser.PrintStrContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printStr}
+	 * labeled alternative in {@link CMCGrammarParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStr(CMCGrammarParser.PrintStrContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code iffStmt}
+	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterIffStmt(CMCGrammarParser.IffStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code iffStmt}
+	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitIffStmt(CMCGrammarParser.IffStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifStmtElse}
+	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStmtElse(CMCGrammarParser.IfStmtElseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifStmtElse}
+	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStmtElse(CMCGrammarParser.IfStmtElseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code condExpr}
+	 * labeled alternative in {@link CMCGrammarParser#cond}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondExpr(CMCGrammarParser.CondExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code condExpr}
+	 * labeled alternative in {@link CMCGrammarParser#cond}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondExpr(CMCGrammarParser.CondExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code condOprtors}
+	 * labeled alternative in {@link CMCGrammarParser#cond}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondOprtors(CMCGrammarParser.CondOprtorsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code condOprtors}
+	 * labeled alternative in {@link CMCGrammarParser#cond}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondOprtors(CMCGrammarParser.CondOprtorsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code whileeStmt}
+	 * labeled alternative in {@link CMCGrammarParser#whilestmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileeStmt(CMCGrammarParser.WhileeStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code whileeStmt}
+	 * labeled alternative in {@link CMCGrammarParser#whilestmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileeStmt(CMCGrammarParser.WhileeStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code forrStmt}
+	 * labeled alternative in {@link CMCGrammarParser#forstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterForrStmt(CMCGrammarParser.ForrStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code forrStmt}
+	 * labeled alternative in {@link CMCGrammarParser#forstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitForrStmt(CMCGrammarParser.ForrStmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CMCGrammarParser#callfunction}.
 	 * @param ctx the parse tree
@@ -220,33 +378,159 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitAssignOP(CMCGrammarParser.AssignOPContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#mag}.
+	 * Enter a parse tree produced by the {@code exprPlus}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterMag(CMCGrammarParser.MagContext ctx);
+	void enterExprPlus(CMCGrammarParser.ExprPlusContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#mag}.
+	 * Exit a parse tree produced by the {@code exprPlus}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitMag(CMCGrammarParser.MagContext ctx);
+	void exitExprPlus(CMCGrammarParser.ExprPlusContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#term}.
+	 * Enter a parse tree produced by the {@code exprMinum}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterTerm(CMCGrammarParser.TermContext ctx);
+	void enterExprMinum(CMCGrammarParser.ExprMinumContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#term}.
+	 * Exit a parse tree produced by the {@code exprMinum}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitTerm(CMCGrammarParser.TermContext ctx);
+	void exitExprMinum(CMCGrammarParser.ExprMinumContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#factor}.
+	 * Enter a parse tree produced by the {@code exprTerm}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterFactor(CMCGrammarParser.FactorContext ctx);
+	void enterExprTerm(CMCGrammarParser.ExprTermContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#factor}.
+	 * Exit a parse tree produced by the {@code exprTerm}
+	 * labeled alternative in {@link CMCGrammarParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitFactor(CMCGrammarParser.FactorContext ctx);
+	void exitExprTerm(CMCGrammarParser.ExprTermContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termDiv}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermDiv(CMCGrammarParser.TermDivContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termDiv}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermDiv(CMCGrammarParser.TermDivContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termFactor}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermFactor(CMCGrammarParser.TermFactorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termFactor}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermFactor(CMCGrammarParser.TermFactorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code termMult}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermMult(CMCGrammarParser.TermMultContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code termMult}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermMult(CMCGrammarParser.TermMultContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprParnt}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprParnt(CMCGrammarParser.ExprParntContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprParnt}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprParnt(CMCGrammarParser.ExprParntContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factorId}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactorId(CMCGrammarParser.FactorIdContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factorId}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactorId(CMCGrammarParser.FactorIdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factorNum}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactorNum(CMCGrammarParser.FactorNumContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factorNum}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactorNum(CMCGrammarParser.FactorNumContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factorStr}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactorStr(CMCGrammarParser.FactorStrContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factorStr}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactorStr(CMCGrammarParser.FactorStrContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code factorBool}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactorBool(CMCGrammarParser.FactorBoolContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code factorBool}
+	 * labeled alternative in {@link CMCGrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactorBool(CMCGrammarParser.FactorBoolContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code trueValue}
+	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterTrueValue(CMCGrammarParser.TrueValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code trueValue}
+	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitTrueValue(CMCGrammarParser.TrueValueContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code falseValue}
+	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterFalseValue(CMCGrammarParser.FalseValueContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code falseValue}
+	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitFalseValue(CMCGrammarParser.FalseValueContext ctx);
 }

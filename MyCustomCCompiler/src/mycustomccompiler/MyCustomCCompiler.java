@@ -33,14 +33,14 @@ public class MyCustomCCompiler {
         CMCGrammarLexer lexer = new CMCGrammarLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);
-        //CMCGrammarParser.ProgContext lang = parser.prog();
+        CMCGrammarParser.ProgContext lang = parser.prog();
         
         TabelaSimbolos symbolTable = TabelaSimbolos.getInstance();
-        ParseTree tree = parser.prog();
+
         Visitor visitor = new Visitor();
-        visitor.visit(tree);
+        visitor.visit(lang);
         
-        showParseTreeFrame(tree,parser); //lang
+        showParseTreeFrame(lang,parser); //lang
     }
     
     private static void showParseTreeFrame(ParseTree tree, CMCGrammarParser parser) throws HeadlessException {

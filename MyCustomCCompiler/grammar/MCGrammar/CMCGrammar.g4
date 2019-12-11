@@ -29,42 +29,46 @@ functions       : function+
 function        : type ID OPP ((type ID SEP)* type ID)? CLP block
                 ;
 
-main            : MAIN block
+main            : MAIN block                                        
                 ;
 
-block           : OP line* CL
+block           : OP line+ CL
                 ;
 
-line            : vars
-                | input EOL
-                | output EOL
-                | expr EOL?
-                | ifstmt
-                | whilestmt
-                | forstmt
-                | callfunction EOL
-                | retrn
+line            : vars                                              #varDeclart
+                | attribution EOL                                   #attrLine
+                | input EOL                                         #inputLine         
+                | output EOL                                        #outputLine
+                | expr EOL                                          #exprLine
+                | ifstmt                                            #ifLine
+                | whilestmt                                         #whileLine
+                | forstmt                                           #forLine
+                | retrn EOL                                         #returnLine
+                | callfunction EOL                                  #funcLine
                 ;
 
-input           : READ OPP ID CLP 
+attribution     : ID AT expr
                 ;
 
-output          : WRITE OPP ID CLP
-                | WRITE OPP STR CLP
+input           : READ OPP ID CLP                                   #inputValue
                 ;
 
-ifstmt          : IF OPP cond CLP bloco1=block 
-                | IF OPP cond CLP bloco1=block ELSE bloco2=block
+output          : WRITE OPP ID CLP                                  #printId
+                | WRITE OPP STR CLP                                 #printStr
                 ;
 
-cond            : expr
-                | expr assignOP expr
+ifstmt          : IF OPP cond CLP bloco1=block                      #iffStmt
+                | IF OPP cond CLP bloco1=block ELSE bloco2=block    #ifStmtElse
                 ;
 
-whilestmt       : WHILE OPP expr CLP block
+cond            : expr                                              #condExpr
+                | expr operators=assignOP expr                      #condOprtors      
                 ;
 
-forstmt         : FOR OPP type expr RNG NUM CLP block
+whilestmt       : WHILE OPP cond CLP block                          #whileeStmt
+                ;
+
+forstmt         : FOR OPP type cond RNG NUM CLP block               #forrStmt
                 ;
 
 callfunction    : ID CALL ID OPP ((ID SEP)* ID) CLP
@@ -72,8 +76,8 @@ callfunction    : ID CALL ID OPP ((ID SEP)* ID) CLP
                 | ID OPP CLP
                 ;
 
-retrn           : RET ID EOL
-                | RET expr EOL
+retrn           : RET ID 
+                | RET expr 
                 ;
 
 type            : INT
@@ -82,7 +86,8 @@ type            : INT
                 | STRING
                 ;
 
-assignOP        : EQ
+assignOP        : AT
+                | EQ
                 | NEG
                 | LESS
                 | LESSEQ
@@ -90,26 +95,25 @@ assignOP        : EQ
                 | GREATEREQ
                 ;
 
-expr            : term PLUS expr
-                | term MINUM expr
-                | term
+expr            : term PLUS expr                                    #exprPlus
+                | term MINUM expr                                   #exprMinum
+                | term                                              #exprTerm
                 ;
 
-term            : term MULT factor
-                | term DIV factor
-                | term SEP factor
-                | factor
+term            : term MULT factor                                  #termMult
+                | term DIV factor                                   #termDiv
+                | factor                                            #termFactor
                 ;
 
-factor          : OPP expr CLP
-                | ID
-                | NUM
-                | STR
-                | boolexpr
+factor          : OPP expr CLP                                      #exprParnt
+                | ID                                                #factorId
+                | NUM                                               #factorNum
+                | STR                                               #factorStr
+                | boolexpr                                          #factorBool
                 ;
 
-boolexpr        : TRUE
-                | FALSE
+boolexpr        : TRUE                                              #trueValue
+                | FALSE                                             #falseValue
                 ;
 
 

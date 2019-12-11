@@ -16,44 +16,37 @@ import org.antlr.v4.runtime.ParserRuleContext;
  */
 public class Visitor extends CMCGrammarBaseVisitor {
 
-    String escopo = "local";
-    String nomeFuncao;
-
     @Override
     public Object visitIncludes(CMCGrammarParser.IncludesContext ctx) {
         System.out.println("visitou include");
         return visitChildren(ctx);
-        
     }
 
     @Override
     public Object visitGlobals(CMCGrammarParser.GlobalsContext ctx) {
-        escopo = "global";
         System.out.println("visitou global");
-        System.out.println(escopo);
         return visitChildren(ctx);
     }
 
     @Override
     public Object visitFunctions(CMCGrammarParser.FunctionsContext ctx) {
-        escopo = "funcao";
-        System.out.println("visitou functions");
+        System.out.println("visitou funcao");
         return visitChildren(ctx);
     }
 
     @Override
     public Object visitFunction(CMCGrammarParser.FunctionContext ctx) {
-        nomeFuncao = ctx.ID().get(0).getText();
-        String tipo = ctx.type().get(0).getText();
-        
-        System.out.println(escopo + " "+ tipo + " " + nomeFuncao);
         return visitChildren(ctx);
     }
 
     @Override
     public Object visitMain(CMCGrammarParser.MainContext ctx) {
-        escopo = "local";
-        System.out.println("Visitou main");
+        System.out.println("visitou main");
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitBlock(CMCGrammarParser.BlockContext ctx) {
         return visitChildren(ctx);
     }
 }
