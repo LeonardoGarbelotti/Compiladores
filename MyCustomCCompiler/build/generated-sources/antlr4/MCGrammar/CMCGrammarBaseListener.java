@@ -66,18 +66,6 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIds(CMCGrammarParser.IdsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIds(CMCGrammarParser.IdsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterFunctions(CMCGrammarParser.FunctionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -246,13 +234,25 @@ public class CMCGrammarBaseListener implements CMCGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAttribution(CMCGrammarParser.AttributionContext ctx) { }
+	@Override public void enterAttrExpr(CMCGrammarParser.AttrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAttribution(CMCGrammarParser.AttributionContext ctx) { }
+	@Override public void exitAttrExpr(CMCGrammarParser.AttrExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAttrStr(CMCGrammarParser.AttrStrContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAttrStr(CMCGrammarParser.AttrStrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

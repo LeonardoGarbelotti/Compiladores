@@ -14,23 +14,20 @@ public class Simbolo {
     private Integer id;
     private String val;
     private String tipo;
-    private String escopo;
     private String nome;
 
     public Simbolo() {
         this.id = 0;
         this.tipo = "";
         this.val = "";
-        this.escopo = "";
         this.nome = "";
     }
 
-    public Simbolo(Integer id, String tipo, String nome, String val, String escopo) {
+    public Simbolo(Integer id, String tipo, String nome, String val) {
         this.id = id;
         this.tipo = tipo;
         this.nome = nome;
         this.val = val;
-        this.escopo = escopo;
     }
 
     public Integer getId() {
@@ -55,14 +52,6 @@ public class Simbolo {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getEscopo() {
-        return escopo;
-    }
-
-    public void setEscopo(String escopo) {
-        this.escopo = escopo;
     }
 
     public String getNome() {

@@ -37,12 +37,6 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVars(CMCGrammarParser.VarsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CMCGrammarParser#ids}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIds(CMCGrammarParser.IdsContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link CMCGrammarParser#functions}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -137,11 +131,19 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFuncLine(CMCGrammarParser.FuncLineContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CMCGrammarParser#attribution}.
+	 * Visit a parse tree produced by the {@code attrExpr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAttribution(CMCGrammarParser.AttributionContext ctx);
+	T visitAttrExpr(CMCGrammarParser.AttrExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code attrStr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAttrStr(CMCGrammarParser.AttrStrContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code inputValue}
 	 * labeled alternative in {@link CMCGrammarParser#input}.

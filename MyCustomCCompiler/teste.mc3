@@ -1,9 +1,8 @@
-global {
-int z;
-}
-
 main{
+int z;
+string barnabe;
 
-int x;
+barnabe = "tarado";
+z = 10;
 
 }

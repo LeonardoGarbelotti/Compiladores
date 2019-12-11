@@ -13,14 +13,10 @@ prog            : includes? globals? functions? main
 includes        : (INCLUDE STR)+
                 ;
 
-globals         : GLOB OP vars CL
+globals         : GLOB OP (vars)+ CL
                 ;
 
-vars            : (type ids EOL)+
-                ;
-
-ids             : ID
-                | ID SEP ids
+vars            : type ID EOL
                 ;
 
 functions       : function+
@@ -47,7 +43,8 @@ line            : vars                                              #varDeclart
                 | callfunction EOL                                  #funcLine
                 ;
 
-attribution     : ID AT expr
+attribution     : ID AT expr                                        #attrExpr
+                | ID AT STR                                         #attrStr
                 ;
 
 input           : READ OPP ID CLP                                   #inputValue

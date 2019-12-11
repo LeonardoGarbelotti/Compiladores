@@ -50,16 +50,6 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitVars(CMCGrammarParser.VarsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#ids}.
-	 * @param ctx the parse tree
-	 */
-	void enterIds(CMCGrammarParser.IdsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#ids}.
-	 * @param ctx the parse tree
-	 */
-	void exitIds(CMCGrammarParser.IdsContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link CMCGrammarParser#functions}.
 	 * @param ctx the parse tree
 	 */
@@ -220,15 +210,29 @@ public interface CMCGrammarListener extends ParseTreeListener {
 	 */
 	void exitFuncLine(CMCGrammarParser.FuncLineContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CMCGrammarParser#attribution}.
+	 * Enter a parse tree produced by the {@code attrExpr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
 	 * @param ctx the parse tree
 	 */
-	void enterAttribution(CMCGrammarParser.AttributionContext ctx);
+	void enterAttrExpr(CMCGrammarParser.AttrExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CMCGrammarParser#attribution}.
+	 * Exit a parse tree produced by the {@code attrExpr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
 	 * @param ctx the parse tree
 	 */
-	void exitAttribution(CMCGrammarParser.AttributionContext ctx);
+	void exitAttrExpr(CMCGrammarParser.AttrExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code attrStr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
+	 * @param ctx the parse tree
+	 */
+	void enterAttrStr(CMCGrammarParser.AttrStrContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code attrStr}
+	 * labeled alternative in {@link CMCGrammarParser#attribution}.
+	 * @param ctx the parse tree
+	 */
+	void exitAttrStr(CMCGrammarParser.AttrStrContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code inputValue}
 	 * labeled alternative in {@link CMCGrammarParser#input}.

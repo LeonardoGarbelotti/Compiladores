@@ -29,6 +29,18 @@ public class Visitor extends CMCGrammarBaseVisitor {
     }
 
     @Override
+    public Object visitVars(CMCGrammarParser.VarsContext ctx) {
+
+        String tipo = ctx.type().getText();
+        String nome = ctx.ID().getText();
+        Simbolo s = new Simbolo((TabelaSimbolos.getInstance().size() + 1), nome, tipo, "null");
+        System.out.println(tipo + " " + nome);
+        TabelaSimbolos.getInstance().add(s);
+
+        return visitChildren(ctx);
+    }
+
+    @Override
     public Object visitFunctions(CMCGrammarParser.FunctionsContext ctx) {
         System.out.println("visitou funcao");
         return visitChildren(ctx);
@@ -46,7 +58,34 @@ public class Visitor extends CMCGrammarBaseVisitor {
     }
 
     @Override
-    public Object visitBlock(CMCGrammarParser.BlockContext ctx) {
+    public Object visitAttrExpr(CMCGrammarParser.AttrExprContext ctx) {
+        System.out.println("agr chega expr");
+        for (int i = 0; i < TabelaSimbolos.getInstance().size(); i++) {
+            String name = TabelaSimbolos.getInstance().get(i).getNome();
+            if (ctx.ID().getText().equals(name)) {
+                Simbolo s = TabelaSimbolos.getInstance().get(i);
+                s.setVal(visit(ctx.expr()).toString());
+                TabelaSimbolos.getInstance().set(i, s);
+                break;
+            }
+        }
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public Object visitAttrStr(CMCGrammarParser.AttrStrContext ctx) {
+        String aux = ctx.STR().getText();
+        aux = aux.replace("\"", "");
+        for (int i = 0; i < TabelaSimbolos.getInstance().size(); i++) {
+            String name = TabelaSimbolos.getInstance().get(i).getNome();
+            if (ctx.ID().getText().equals(name)) {
+                Simbolo s = TabelaSimbolos.getInstance().get(i);
+                s.setVal(aux);
+                TabelaSimbolos.getInstance().set(i, s);
+                break;
+            }
+        }
+
         return visitChildren(ctx);
     }
 }
