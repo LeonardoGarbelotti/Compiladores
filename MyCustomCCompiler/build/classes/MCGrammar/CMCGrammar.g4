@@ -16,7 +16,7 @@ includes        : (INCLUDE STR)+
 globals         : GLOB OP (vars)+ CL
                 ;
 
-vars            : type ID EOL
+vars            : type ID (SEP ID)* EOL
                 ;
 
 functions       : function+
@@ -47,24 +47,26 @@ attribution     : ID AT expr                                        #attrExpr
                 | ID AT STR                                         #attrStr
                 ;
 
-input           : READ OPP ID CLP                                   #inputValue
+input           : READ OPP ID CLP                                   
                 ;
 
-output          : WRITE OPP expr CLP                                  #printt
+output          : WRITE OPP outputType CLP                                  
                 ;
 
-ifstmt          : IF OPP cond CLP bloco1=block                      #iffStmt
-                | IF OPP cond CLP bloco1=block ELSE bloco2=block    #ifStmtElse
+outputType      : STR                                               #printSTR
+                | ID                                                #printID
+                | expr                                              #printExpr
                 ;
 
-cond            : expr                                              #condExpr
-                | expr operators=assignOP expr                      #condOprtors      
+ifstmt          : IF OPP boolExpr CLP block                         #iffStmt
+                | IF OPP boolExpr CLP block ELSE block              #ifStmtElse
                 ;
 
-whilestmt       : WHILE OPP cond CLP block                          #whileeStmt
+
+whilestmt       : WHILE OPP boolExpr CLP block                      #whileeStmt
                 ;
 
-forstmt         : FOR OPP type cond RNG NUM CLP block               #forrStmt
+forstmt         : FOR OPP attribution EOL boolExpr EOL ID incr NUM CLP block    #forrStmt
                 ;
 
 callfunction    : ID CALL ID OPP ((ID SEP)* ID) CLP
@@ -72,8 +74,7 @@ callfunction    : ID CALL ID OPP ((ID SEP)* ID) CLP
                 | ID OPP CLP
                 ;
 
-retrn           : RET ID 
-                | RET expr 
+retrn           : RET '0'                                          #returnVal
                 ;
 
 type            : INT
@@ -82,13 +83,12 @@ type            : INT
                 | STRING
                 ;
 
-assignOP        : AT
-                | EQ
-                | NEG
-                | LESS
-                | LESSEQ
-                | GREATER
-                | GREATEREQ
+assignOP        : EQ
+                | NEG 
+                | LESS 
+                | LESSEQ 
+                | GREATER 
+                | GREATEREQ 
                 ;
 
 expr            : term PLUS expr                                    #exprPlus
@@ -98,6 +98,7 @@ expr            : term PLUS expr                                    #exprPlus
 
 term            : term MULT factor                                  #termMult
                 | term DIV factor                                   #termDiv
+                | term MOD factor                                   #termMod
                 | factor                                            #termFactor
                 ;
 
@@ -105,11 +106,15 @@ factor          : OPP expr CLP                                      #exprParnt
                 | ID                                                #factorId
                 | NUM                                               #factorNum
                 | STR                                               #factorStr
-                | boolexpr                                          #factorBool
                 ;
 
-boolexpr        : TRUE                                              #trueValue
+boolExpr        : TRUE                                              #trueValue
                 | FALSE                                             #falseValue
+                | factor assignOP factor                            #boolExpres
+                ;
+
+incr            : PEG
+                | MEG
                 ;
 
 
@@ -139,6 +144,8 @@ AT          : '=';
 RNG         : '...';
 NEG         : '!=';
 EQ          : '==';
+PEG	    : '+=';
+MEG	    : '-=';
 LESS        : '<';
 LESSEQ      : '<=';
 GREATER     : '>';
@@ -150,6 +157,7 @@ PLUS        : '+';
 MINUM       : '-';
 MULT        : '*';
 DIV         : '/';
+MOD         : '%';
 
 
 

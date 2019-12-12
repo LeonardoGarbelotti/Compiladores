@@ -34,15 +34,24 @@ public class MyCustomCCompiler {
         TokenStream tokens = new BufferedTokenStream(lexer);
         CMCGrammarParser parser = new CMCGrammarParser(tokens);
         CMCGrammarParser.ProgContext lang = parser.prog();
-        
+
         TabelaSimbolos symbolTable = TabelaSimbolos.getInstance();
 
         Visitor visitor = new Visitor();
         visitor.visit(lang);
-        
-        showParseTreeFrame(lang,parser); //lang
+
+        showParseTreeFrame(lang, parser); //lang
+
+        for (int i = 0; i < symbolTable.size(); i++) {
+            System.out.println(
+                    "ID: " + symbolTable.get(i).getId()
+                    + " Nome: " + symbolTable.get(i).getNome()
+                    + " Tipo: " + symbolTable.get(i).getTipo()
+                    + " Valor: " + symbolTable.get(i).getVal()
+            );
+        }
     }
-    
+
     private static void showParseTreeFrame(ParseTree tree, CMCGrammarParser parser) throws HeadlessException {
         JFrame frame = new JFrame("SRC: " + tree.getText());
         JPanel panel = new JPanel();

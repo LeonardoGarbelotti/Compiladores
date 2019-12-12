@@ -1,7 +1,4 @@
 main{
-    int z;
-    z = 2 + 2;
-   
-    writeln(z);
+
 
 }

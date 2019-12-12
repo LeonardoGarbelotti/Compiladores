@@ -145,19 +145,38 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAttrStr(CMCGrammarParser.AttrStrContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code inputValue}
-	 * labeled alternative in {@link CMCGrammarParser#input}.
+	 * Visit a parse tree produced by {@link CMCGrammarParser#input}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInputValue(CMCGrammarParser.InputValueContext ctx);
+	T visitInput(CMCGrammarParser.InputContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code printt}
-	 * labeled alternative in {@link CMCGrammarParser#output}.
+	 * Visit a parse tree produced by {@link CMCGrammarParser#output}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrintt(CMCGrammarParser.PrinttContext ctx);
+	T visitOutput(CMCGrammarParser.OutputContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code printSTR}
+	 * labeled alternative in {@link CMCGrammarParser#outputType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintSTR(CMCGrammarParser.PrintSTRContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code printID}
+	 * labeled alternative in {@link CMCGrammarParser#outputType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintID(CMCGrammarParser.PrintIDContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link CMCGrammarParser#outputType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintExpr(CMCGrammarParser.PrintExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code iffStmt}
 	 * labeled alternative in {@link CMCGrammarParser#ifstmt}.
@@ -172,20 +191,6 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfStmtElse(CMCGrammarParser.IfStmtElseContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code condExpr}
-	 * labeled alternative in {@link CMCGrammarParser#cond}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCondExpr(CMCGrammarParser.CondExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code condOprtors}
-	 * labeled alternative in {@link CMCGrammarParser#cond}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCondOprtors(CMCGrammarParser.CondOprtorsContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code whileeStmt}
 	 * labeled alternative in {@link CMCGrammarParser#whilestmt}.
@@ -207,11 +212,12 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCallfunction(CMCGrammarParser.CallfunctionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CMCGrammarParser#retrn}.
+	 * Visit a parse tree produced by the {@code returnVal}
+	 * labeled alternative in {@link CMCGrammarParser#retrn}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRetrn(CMCGrammarParser.RetrnContext ctx);
+	T visitReturnVal(CMCGrammarParser.ReturnValContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CMCGrammarParser#type}.
 	 * @param ctx the parse tree
@@ -252,6 +258,13 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTermDiv(CMCGrammarParser.TermDivContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code termMod}
+	 * labeled alternative in {@link CMCGrammarParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermMod(CMCGrammarParser.TermModContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code termFactor}
 	 * labeled alternative in {@link CMCGrammarParser#term}.
@@ -295,24 +308,30 @@ public interface CMCGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFactorStr(CMCGrammarParser.FactorStrContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code factorBool}
-	 * labeled alternative in {@link CMCGrammarParser#factor}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFactorBool(CMCGrammarParser.FactorBoolContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code trueValue}
-	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * labeled alternative in {@link CMCGrammarParser#boolExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitTrueValue(CMCGrammarParser.TrueValueContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code falseValue}
-	 * labeled alternative in {@link CMCGrammarParser#boolexpr}.
+	 * labeled alternative in {@link CMCGrammarParser#boolExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitFalseValue(CMCGrammarParser.FalseValueContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code boolExpres}
+	 * labeled alternative in {@link CMCGrammarParser#boolExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolExpres(CMCGrammarParser.BoolExpresContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CMCGrammarParser#incr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIncr(CMCGrammarParser.IncrContext ctx);
 }
