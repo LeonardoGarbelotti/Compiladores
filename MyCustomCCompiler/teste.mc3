@@ -1,4 +1,11 @@
 main{
+    string active;
 
+
+    if(true){
+        int x;
+    } else {
+        int y;
+    }
 
 }

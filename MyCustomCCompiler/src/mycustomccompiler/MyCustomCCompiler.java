@@ -45,8 +45,8 @@ public class MyCustomCCompiler {
         for (int i = 0; i < symbolTable.size(); i++) {
             System.out.println(
                     "ID: " + symbolTable.get(i).getId()
-                    + " Nome: " + symbolTable.get(i).getNome()
                     + " Tipo: " + symbolTable.get(i).getTipo()
+                    + " Nome: " + symbolTable.get(i).getNome()
                     + " Valor: " + symbolTable.get(i).getVal()
             );
         }
